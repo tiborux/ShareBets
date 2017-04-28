@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({ 
     selector: 'menu-register',
@@ -15,4 +15,10 @@ import { Component } from '@angular/core';
 })
 export class MenuRegisterComponent {
 
+    @Output()
+    public notify:EventEmitter<boolean> = new EventEmitter<boolean>();
+    
+    hiddeLogin():void{
+        this.notify.emit(false);
+    }
 }
