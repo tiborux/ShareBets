@@ -1,0 +1,14 @@
+<div class="ui container">
+    <div class="ui large secondary inverted pointing menu">
+
+        <a class="active item" [routerLink]="['/inicio']">Inicio</a>
+
+        <div class="right item">
+            <div class="blue ui buttons">
+                <button class="ui button" [routerLink]="['/login']" (click)="hiddeLogin($event)">Iniciar sesión</button>
+                <button class="ui button" >Registrar</button>
+            </div>
+        </div>
+
+    </div>
+</div>

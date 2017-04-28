@@ -1,8 +1,8 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({ 
-    selector: 'menu-register',
-    templateUrl: 'menu-register.component.html',
+    selector: 'menu-invitado',
+    templateUrl: 'menu-invitado.component.html',
     styles: [`
      .ui.buttons .button{
       margin-left: 1em;
@@ -13,7 +13,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
     }
 `]
 })
-export class MenuRegisterComponent {
+export class MenuInvitadoComponent {
 
     @Output()
     public notify:EventEmitter<boolean> = new EventEmitter<boolean>();
