@@ -1,6 +1,5 @@
-<div class="pusher">
+<menu-invitado  (notify)="loginShow($event)"></menu-invitado>
     <div class="ui inverted vertical masthead center aligned segment">
-        <menu-invitado  (notify)="loginShow($event)"></menu-invitado>
         <div  *ngIf="show" class="ui text container">
             <h1  class="ui inverted header">
                 Realiza apuestas junto a tus amigos
@@ -12,4 +11,4 @@
     <router-outlet></router-outlet>
 
     <footer></footer>
-</div>
+

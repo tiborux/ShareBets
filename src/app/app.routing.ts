@@ -10,6 +10,7 @@ export const routes:Routes=[
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'inicio', component: ContentHomeComponent }
+      
     ]},
   { path: '', redirectTo:'app/inicio',pathMatch: 'full' }
 ]

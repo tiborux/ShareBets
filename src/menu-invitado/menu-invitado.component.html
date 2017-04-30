@@ -1,14 +1,10 @@
-<div class="ui container">
-    <div class="ui large secondary inverted pointing menu">
-
-        <a class="active item" [routerLink]="['/app/inicio']">Inicio</a>
-
-        <div class="right item">
-            <div class="blue ui buttons">
-                <button class="ui button" [routerLink]="['/app/login']" (click)="hiddeLogin($event)">Iniciar sesión</button>
-                <button class="ui button" >Registrar</button>
-            </div>
-        </div>
-
-    </div>
+<div class="ui top fixed menu">
+    <a class="item">
+        <img src="../assets/logo.png">
+        </a>
+  <a class="item" [routerLink]="['/app/inicio']">Inicio</a>
+  <div class="right menu">
+    <a class="item" [routerLink]="['/app/login']" (click)="hiddeLogin($event)">Iniciar sesión</a>
+    <a class="item">Registrar</a>
+  </div>
 </div>

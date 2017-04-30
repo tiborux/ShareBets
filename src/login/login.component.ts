@@ -11,8 +11,8 @@ styles: [`
       height: 100%;
     }
     .column {
-    margin-top:4em;
-    margin-bottom:4em;
+      margin-top:17em;
+      margin-bottom:20em;
       max-width: 40em;
     }
   `]

@@ -19,7 +19,8 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../semantic/semantic.min.css" 
+        "../semantic/semantic.min.css",
+        "../node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
       ],
       "scripts": [
       "../node_modules/jquery/dist/jquery.min.js",
