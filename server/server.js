@@ -1,9 +1,9 @@
-var express = require("express"),
+var express = require('express'),
+    fs = require('fs'),
     app = express(),
-    http = require("http"),
+    http = require('http'),
     server = http.createServer(app),
-    db = require('../server/config/database-usuarios.js'),
-    router = require('../server/router/routes'),
+    db = require('./config/database.js'),
     bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,10 +14,15 @@ app.use((req, res, next) => {
   next();
 });
 
-router(app, db);
+
+// Every folder in components is loaded automaticaly
+fs.readdirSync('./components')
+.forEach((file) => {
+  require(`./components/${file}`)(app, db);
+});
 
 //drop and resync with { force: true }
-db.sequelize.sync().then(() => {
+db.sync().then(() => {
   app.listen(3000, () => {
     console.log('Express listening on port:', 3000);
   });
