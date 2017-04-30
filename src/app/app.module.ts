@@ -9,9 +9,11 @@ import { HttpModule } from '@angular/http';
 import {NgSemanticModule} from "ng-semantic";
 import {routing} from  './app.routing';
 import { AppComponent } from './app.component';
+import { MainComponent } from './main.component';
 
 @NgModule({
   declarations: [
+    MainComponent,
     AppComponent,
     FooterComponent,
     MenuInvitadoComponent,
@@ -27,6 +29,6 @@ import { AppComponent } from './app.component';
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [MainComponent]
 })
 export class AppModule { }
