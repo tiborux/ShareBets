@@ -1,0 +1,15 @@
+   body {
+      background-color: #DADADA;
+    }
+    body > .grid {
+      height: 100%;
+    }
+    .ui.form {
+      margin-top:6em;
+      margin-bottom:20em;
+      margin-left: 3em;
+      max-width: 40em;
+    }
+    .ui.inverted.segment{
+    margin-top: 0;
+}

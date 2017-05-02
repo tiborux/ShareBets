@@ -1,0 +1,14 @@
+   body {
+      background-color: #DADADA;
+    }
+    body > .grid {
+      height: 100%;
+    }
+    .column {
+      margin-top:17em;
+      margin-bottom:20em;
+      max-width: 40em;
+    }
+    .ui.inverted.segment{
+    margin-top: 0;
+}

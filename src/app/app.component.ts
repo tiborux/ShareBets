@@ -6,9 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-show:boolean=true;
-  loginShow(show:boolean):void{
-    this.show=show;
-
-  }
 }

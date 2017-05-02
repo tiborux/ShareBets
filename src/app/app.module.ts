@@ -1,3 +1,4 @@
+import { RegistroFormComponent } from './../registro-form/registro-form.component';
 import { LoginComponent } from './../login/login.component';
 import { ContentHomeComponent } from './../content-home/content-home.component';
 import { MenuInvitadoComponent } from './../menu-invitado/menu-invitado.component';
@@ -18,7 +19,8 @@ import { MainComponent } from './main.component';
     FooterComponent,
     MenuInvitadoComponent,
     ContentHomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegistroFormComponent,
   ],
   imports: [
     BrowserModule,

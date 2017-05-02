@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output} from '@angular/core';
 
 @Component({
     selector: 'menu-invitado',
@@ -7,10 +7,4 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class MenuInvitadoComponent {
 
-    @Output()
-    public notify: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-    hiddeLogin(): void {
-        this.notify.emit(false);
-    }
 }
