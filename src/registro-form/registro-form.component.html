@@ -1,25 +1,25 @@
-<form ng-app="registro-app" ng-controller="registro" class="ui form">
+<form class="ui form">
   <div class="field">
     <label>Usuario</label>
-    <input type="text" ng-model="usuario" name="usuario" placeholder="Usuario">
+    <input type="text" [(ngModel)]="usuario" name="usuario" placeholder="Usuario">
   </div>
   <div class="field">
     <label>Contraseña</label>
-    <input type="password" ng-model="password" name="password" placeholder="Contraseña">
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña">
   </div>
   <div class="field">
     <label>Email</label>
-    <input type="email" ng-model="email" name="email" placeholder="Email">
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Email">
   </div>
-   <div class="field">
+  <div class="field">
     <label>Nombre</label>
-    <input type="text" ng-model="nombre" name="nombre" placeholder="Nombre">
+    <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre">
   </div>
-   <div class="field">
+  <div class="field">
     <label>Apellidos</label>
-    <input type="text" ng-model="apellidos" name="apellidos" placeholder="Apellidos">
+    <input type="text" [(ngModel)]="apellidos" name="apellidos" placeholder="Apellidos">
   </div>
-<div class="field">
+  <div class="field">
     <div class="ui checkbox">
       <input type="checkbox">
       <label>Soy mayor de edad</label>
@@ -27,9 +27,9 @@
   </div>
   <div class="field">
     <div class="ui checkbox">
-      <input type="checkbox" >
+      <input type="checkbox">
       <label>Aceptar términos y condiciones</label>
     </div>
   </div>
-  <button class="ui button" type="submit" (click)="getPosts()">Registrarse</button>
+  <button class="ui button" type="submit" (click)="registerUser()">Registrarse</button>
 </form>

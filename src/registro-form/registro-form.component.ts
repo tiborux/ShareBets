@@ -1,3 +1,6 @@
+import { Usuario } from './../modelos/usuario';
+import { RegistroService } from './registro.service';
+import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
 import { Component } from '@angular/core';
 
@@ -7,12 +10,16 @@ import { Component } from '@angular/core';
     styleUrls: ['registro-form.component.css']
 })
 export class RegistroFormComponent {
-    data: any;
-  constructor(private _http: Http){}
- 
-   getPosts(){
-        // petición por get a esa url de un api rest de pruebas
-    return this._http.get("http://localhost:3000/users/user")
-                            .map(res => this.data=res.json());
-   }
+    constructor(private registroService: RegistroService) { }
+    usuario: string;
+    password: string;
+    email: string;
+    nombre: string;
+    apellidos: string;
+
+//Registramos un usuario llamando al servicio
+    registerUser(){
+        var user = new Usuario(this.usuario, this.password, this.email, this.nombre, this.apellidos);
+        this.registroService.addUser(user).subscribe();
+    }
 }
