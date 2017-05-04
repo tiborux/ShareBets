@@ -1,5 +1,5 @@
-import { RegistroService } from './../registro-form/registro.service';
-import { RegistroFormComponent } from './../registro-form/registro-form.component';
+import { RegisterService } from './../register-form/register.service';
+import { RegisterFormComponent } from './../register-form/register-form.component';
 import { LoginComponent } from './../login/login.component';
 import { ContentHomeComponent } from './../content-home/content-home.component';
 import { MenuInvitadoComponent } from './../menu-invitado/menu-invitado.component';
@@ -21,7 +21,7 @@ import { MainComponent } from './main.component';
     MenuInvitadoComponent,
     ContentHomeComponent,
     LoginComponent,
-    RegistroFormComponent
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +31,7 @@ import { MainComponent } from './main.component';
     routing
   ],
   providers: [
-    RegistroService
+    RegisterService
   ],
   bootstrap: [MainComponent]
 })

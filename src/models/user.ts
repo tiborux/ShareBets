@@ -1,5 +1,4 @@
-/* * * ./app/comments/model/comment.ts * * */
-export class Usuario {
+export class User {
     constructor(
         public usuario: string, 
         public password:string,
