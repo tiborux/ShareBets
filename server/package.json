@@ -3,10 +3,11 @@
   "main": "server.js",
   "version": "0.0.1",
   "dependencies": {
-    "express": "~4.0.0",
-    "mongoose": "~3.6.13",
-    "body-parser": "~1.0.1",
     "bcryptjs": "^2.4.3",
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "fs": "0.0.1-security",
+    "mysql": "^2.13.0",
     "sequelize": "^3.30.4"
   },
   "devDependencies": {
