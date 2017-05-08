@@ -16,10 +16,13 @@ export class RegisterFormComponent {
     email: string;
     nombre: string;
     apellidos: string;
+    checked: boolean;
 
 //Registramos un usuario llamando al servicio
+
     registerUser(){
         var user = new User(this.usuario, this.password, this.email, this.nombre, this.apellidos);
+        console.log(user);
         this.registerService.addUser(user).subscribe();
     }
 }

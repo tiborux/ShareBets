@@ -1,8 +1,6 @@
 var express = require('express'),
     fs = require('fs'),
     app = express(),
-    http = require('http'),
-    server = http.createServer(app),
     db = require('./config/database.js'),
     bodyParser = require('body-parser');
 

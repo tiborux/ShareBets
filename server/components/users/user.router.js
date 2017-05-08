@@ -8,6 +8,7 @@ module.exports = (controller) => {
   router.post('/', controller.create.bind(controller));
   router.put('/:username', controller.update.bind(controller));
   router.delete('/:username', controller.delete.bind(controller));
+  router.post('/auth/login', controller.emailLogin.bind(controller));
 
   return router;
 };

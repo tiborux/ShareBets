@@ -8,11 +8,11 @@ import 'rxjs/add/operator/map';
 export class RegisterService {
   constructor(private http: Http) { }
 
-  url_base:string='http://localhost:3000';
+  url_base:string='http://localhost:3000/users';
 
   //Get all users
   getUsers() : Observable<User[]> {
-    return this.http.get(this.url_base+'/users')
+    return this.http.get(this.url_base)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     ;
@@ -20,7 +20,7 @@ export class RegisterService {
 
   //Add new user 
   addUser(body: Object): Observable<User[]> {
-    return this.http.post(this.url_base+'/newuser', body)
+    return this.http.post(this.url_base, body)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //Show errors if any
   }

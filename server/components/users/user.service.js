@@ -4,28 +4,28 @@ class UserService {
   }
 
   getAll() {
-    return this.db.usuarios.findAll();
+    return this.db.findAll();
   }
 
   get(username) {
-    return this.db.usuarios.find({
-      where: { username }
+    return this.db.find({
+      where: { usuario: username }
     });
   }
 
   create(model) {
-    return this.db.usuarios.create(model);
+    return this.db.create(model);
   }
 
   update(username, model) {
-    return this.db.usuarios.update(model, {
-      where: { username }
+    return this.db.update(model, {
+      where: { usuario: username }
     });
   }
 
   delete(username) {
-    return this.db.usuariol.destroy({
-      where: { username }
+    return this.db.destroy({
+      where: { usuario: username }
     });
   }
 }
