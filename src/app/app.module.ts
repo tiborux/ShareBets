@@ -12,6 +12,7 @@ import { NgSemanticModule } from "ng-semantic";
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main.component';
+import { HttpService } from "services/http.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MainComponent } from './main.component';
     routing
   ],
   providers: [
-    RegisterService
+    RegisterService,
+    HttpService
   ],
   bootstrap: [MainComponent]
 })

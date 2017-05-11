@@ -3,11 +3,14 @@
   "main": "server.js",
   "version": "0.0.1",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcrypt": "^1.0.2",
     "body-parser": "~1.0.1",
     "express": "~4.0.0",
     "fs": "0.0.1-security",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.18.1",
     "mysql": "^2.13.0",
+    "nodemon": "^1.11.0",
     "sequelize": "^3.30.4"
   },
   "devDependencies": {

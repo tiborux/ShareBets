@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.1",
     "core-js": "^2.4.1",
+    "ember-cli-cors": "0.0.2",
     "express": "^4.7.1",
     "jquery": "^3.2.1",
     "method-override": "^2.1.2",

@@ -1,7 +1,5 @@
 import { User} from './../models/user';
 import { RegisterService } from './register.service';
-import { Observable } from 'rxjs/Observable';
-import { Http } from '@angular/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -22,7 +20,6 @@ export class RegisterFormComponent {
 
     registerUser(){
         var user = new User(this.usuario, this.password, this.email, this.nombre, this.apellidos);
-        console.log(user);
-        this.registerService.addUser(user).subscribe();
+        this.registerService.registerUser(user);
     }
 }
