@@ -1,4 +1,4 @@
-import { RegisterService } from './../register-form/register.service';
+import { UserService } from './../services/user.service';
 import { RegisterFormComponent } from './../register-form/register-form.component';
 import { LoginComponent } from './../login/login.component';
 import { ContentHomeComponent } from './../content-home/content-home.component';
@@ -13,6 +13,7 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main.component';
 import { HttpService } from "services/http.service";
+import { RegisterSuccessMessageComponent } from "messages/register-success.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpService } from "services/http.service";
     MenuInvitadoComponent,
     ContentHomeComponent,
     LoginComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    RegisterSuccessMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,7 @@ import { HttpService } from "services/http.service";
     routing
   ],
   providers: [
-    RegisterService,
+    UserService,
     HttpService
   ],
   bootstrap: [MainComponent]

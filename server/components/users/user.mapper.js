@@ -29,5 +29,4 @@ class UserMapper {
   }
 }
 
-
 module.exports = new UserMapper();

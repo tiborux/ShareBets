@@ -1,6 +1,10 @@
-import { User} from './../models/user';
-import { RegisterService } from './register.service';
-import { Component } from '@angular/core';
+import { User } from './../models/user';
+import { UserService } from '../services/user.service';
+import { Component, Output } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { EventEmitter } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import {Login} from "../models/login";
 
 @Component({
     selector: 'register-form',
@@ -8,7 +12,12 @@ import { Component } from '@angular/core';
     styleUrls: ['register-form.component.css']
 })
 export class RegisterFormComponent {
-    constructor(private registerService: RegisterService) { }
+
+    messageSuccess = false;
+    constructor(
+        private userService: UserService,
+        private route: ActivatedRoute,
+        private router: Router) { }
     usuario: string;
     password: string;
     email: string;
@@ -16,10 +25,26 @@ export class RegisterFormComponent {
     apellidos: string;
     checked: boolean;
 
-//Registramos un usuario llamando al servicio
+    url: string = 'http://localhost:3000/users';
 
-    registerUser(){
+    sucess(respuesta) {
+
+        this.messageSuccess = !this.messageSuccess;
+        setTimeout(() => 
+        {
+            this.userService.setLogin(this.usuario,this.password);
+            this.router.navigate(['/app/login']);
+        },
+            3000);
+    }
+
+    error(respuesta) {
+        console.log(respuesta);
+    }
+
+    registerUser(event: any) {
+        event.preventDefault();
         var user = new User(this.usuario, this.password, this.email, this.nombre, this.apellidos);
-        this.registerService.registerUser(user);
+        this.userService.registerUser(this.url, user).subscribe(this.sucess.bind(this), this.error);
     }
 }

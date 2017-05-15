@@ -5,11 +5,17 @@
       height: 100%;
     }
     .ui.form {
-      margin-top:8em;
-      margin-bottom:13em;
+      margin-top:6em;
+      margin-bottom:19em;
       margin-left: 3em;
       max-width: 40em;
     }
     .ui.inverted.segment{
     margin-top: 0;
-}
+    }
+    .ui.checkbox {
+    margin-top: 1em;
+    }
+    .ui.button {
+     margin-top: 1em;
+    }

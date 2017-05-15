@@ -1,4 +1,4 @@
-<div class="ui top fixed menu">
+<div *ngIf="!login" class="ui top fixed menu">
     <a class="item" [routerLink]="['/app/inicio']">
         <img src="../assets/logo.png">
         </a>
@@ -6,5 +6,19 @@
   <div class="right menu">
     <a class="item" [routerLink]="['/app/login']" >Iniciar sesión</a>
     <a class="item" [routerLink]="['/app/register']">Registrar</a>
+  </div>
+</div>
+
+<div *ngIf="login" class="ui top fixed menu">
+    <a class="item" [routerLink]="['/app/inicio']">
+        <img src="../assets/logo.png">
+        </a>
+  <a class="item" [routerLink]="['/app/inicio']">Inicio</a>
+  <a class="item" [routerLink]="['/app/']">Mis apuestas</a>
+  <a class="item" [routerLink]="['/app/']">Historial</a>
+  <div class="right menu">
+    <a class="item" [routerLink]="['/app/register']">Mi perfil</a>
+    <a class="item" [routerLink]="['/app/login']" >Cerrar sesión</a>
+   
   </div>
 </div>
