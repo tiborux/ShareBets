@@ -7,7 +7,6 @@ const db = new Sequelize('sharebet', 'root', '', {
 
 fs.readdirSync('./models')
 .forEach((file) => {
-  require(`../models/${file}`)(db, Sequelize);
-});
-
+  require(`../models/${file}`)(db, Sequelize)
+})
 module.exports = db;

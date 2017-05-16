@@ -1,0 +1,8 @@
+.ui.grid {
+    margin-top: 5em;
+    margin-bottom: 37%;
+}
+.ui[class*="five column"].grid>.column:not(.row), .ui[class*="five column"].grid>.row>.column {
+    width: 17%;
+    margin-left: 3em;
+}

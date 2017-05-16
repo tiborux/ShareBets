@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from "models/user";
 import { UserService } from "services/user.service";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'login',
@@ -9,7 +10,7 @@ import { UserService } from "services/user.service";
 })
 export class LoginComponent implements OnInit {
 
-    constructor(private userService: UserService, ) { }
+    constructor(private userService: UserService, private router: Router) { }
     usuario: string;
     password: string;
     url_base: string = 'http://localhost:3000/login';
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
     sucess(respuesta) {
         localStorage.setItem('token', respuesta.token);
         this.userService.setLogged(true);
+        this.router.navigate(['/app/apuestas']);
     }
 
     error(respuesta) {

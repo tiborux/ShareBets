@@ -16,7 +16,6 @@ export class RegisterFormComponent {
     messageSuccess = false;
     constructor(
         private userService: UserService,
-        private route: ActivatedRoute,
         private router: Router) { }
     usuario: string;
     password: string;
