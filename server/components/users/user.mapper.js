@@ -18,10 +18,18 @@ class UserMapper {
     };
   }
 
-  inputUpdate(inputUser) {
+  inputCreate(inputUser) {
     return  {
       usuario: inputUser.usuario,
       password: inputUser.password,
+      email: inputUser.email,
+      nombre: inputUser.nombre,
+      apellidos: inputUser.apellidos
+    };
+  }
+   inputUpdate(inputUser) {
+    return  {
+      usuario: inputUser.usuario,
       email: inputUser.email,
       nombre: inputUser.nombre,
       apellidos: inputUser.apellidos

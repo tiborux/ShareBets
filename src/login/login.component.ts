@@ -18,11 +18,15 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         this.usuario = this.userService.getLogin().usuario;
         this.password = this.userService.getLogin().password;
+        console.log(this.usuario);
     }
     sucess(respuesta) {
-        localStorage.setItem('token', respuesta.token);
-        this.userService.setLogged(true);
-        this.router.navigate(['/app/apuestas']);
+        if(respuesta.token){
+            console.log("nada");
+            localStorage.setItem('token', respuesta.token);
+            this.userService.setLogged(true);
+            this.router.navigate(['/app/apuestas']);
+        }
     }
 
     error(respuesta) {

@@ -11,13 +11,23 @@ class BetsController {
     .then(res.json.bind(res)).catch(res.send.bind(res));
   }
 
-  getAllByUserId(req, res) {
-    return this.service.getAllByUserId(req.params.id)
-    .then(this.mapper.outputAll.bind(this.mapper))
+  getMe(req, res) {
+    return this.service.getByUserId(req.user)
+    .then(res.json.bind(res)).catch(res.send.bind(res));
+  }
+
+  getUsers(req, res) {
+    return this.service.getUsersBets(req.params.betId)
+    .then(this.mapper.outputGetUsersBets.bind(this.mapper))
     .then(res.json.bind(res)).catch(res.send.bind(res));
   }
 
   create(req, res) {
+    return this.service.create2create(this.mapper.inputUpdate(req.user))
+    .then(this.mapper.outputGet.bind(this.mapper, req.body))
+    .then(res.json.bind(res)).catch(res.send.bind(res));
+  }
+   createBet(req, res) {
     return this.service.create(this.mapper.inputUpdate(req.body))
     .then(this.mapper.outputGet.bind(this.mapper, req.body))
     .then(res.json.bind(res)).catch(res.send.bind(res));

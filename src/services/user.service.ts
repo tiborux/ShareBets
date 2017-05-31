@@ -14,6 +14,7 @@ export class UserService {
   login: Login = new Login("", "");
   private logged = new Subject<boolean>();
   status: boolean = false;
+  options: RequestOptions;
   // Observable string streams
   isLogged$ = this.logged.asObservable();
 
@@ -41,4 +42,28 @@ export class UserService {
   loginUser(url, body) {
     return this.httpRequest.post(url, body);
   }
+
+   logoutUser() {
+        localStorage.removeItem('token');
+    }
+
+    getBets(url){
+      return this.httpRequest.get(url, this.options);
+    }
+
+    getUsersBet(url){
+      return this.httpRequest.get(url, this.options);
+    }
+
+    createBet(url,body){
+      return this.httpRequest.post(url, body);
+    }
+
+    getMe(url){
+      return this.httpRequest.get(url,this.options);
+    }
+
+    updateUser(url,body){
+      return this.httpRequest.put(url,body,this.options);
+    }
 }

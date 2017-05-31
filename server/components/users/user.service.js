@@ -16,6 +16,10 @@ class UserService {
     });
   }
 
+ getById(id) {
+    return this.db.findById(id);
+  }
+
   getByUserPassword(model) {
     return bcrypt.compare(this.config.env.HASH, model.password)
     .then((hash) => {

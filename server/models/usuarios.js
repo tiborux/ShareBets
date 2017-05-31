@@ -25,7 +25,8 @@ module.exports = (sequelize, Sequelize) => {
     apellidos: Sequelize.STRING
   }, {
     createdAt: false,
-    updatedAt: false
+    updatedAt: false,
+    freezeTableName: true
   });
 
   return User;

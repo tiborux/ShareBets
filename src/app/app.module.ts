@@ -15,6 +15,9 @@ import { MainComponent } from './main.component';
 import { HttpService } from "services/http.service";
 import { RegisterSuccessMessageComponent } from "messages/register-success.component";
 import { ContentBetComponent } from "content-bet/content-bet.component";
+import {AuthGuard} from './auth.guard';
+import { CreateBetComponent } from "create-bet/create-bet.component";
+import { ProfileComponent } from "profile/profile.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { ContentBetComponent } from "content-bet/content-bet.component";
     LoginComponent,
     RegisterFormComponent,
     RegisterSuccessMessageComponent,
-    ContentBetComponent
+    ContentBetComponent,
+    CreateBetComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,8 @@ import { ContentBetComponent } from "content-bet/content-bet.component";
   ],
   providers: [
     UserService,
-    HttpService
+    HttpService,
+    AuthGuard
   ],
   bootstrap: [MainComponent]
 })

@@ -16,9 +16,14 @@ class UserController {
     .then(this.mapper.outputGet.bind(this.mapper))
     .then(res.json.bind(res)).catch(res.send.bind(res));
   }
+    getMe(req, res) {
+    return this.service.getById(req.user)
+    .then(this.mapper.outputGet.bind(this.mapper))
+    .then(res.json.bind(res)).catch(res.send.bind(res));
+  }
 
   create(req, res) {
-    return this.service.create(this.mapper.inputUpdate(req.body))
+    return this.service.create(this.mapper.inputCreate(req.body))
     .then(this.mapper.outputGet.bind(this.mapper, req.body))
     .then(res.json.bind(res)).catch(res.send.bind(res));
   }

@@ -1,27 +1,29 @@
-<div class="ui five column grid">
-  <div class="column">
-    <div class="ui segment">
-      <img>
+<button type="submit" id="create" class="ui fluid large teal submit button" (click)="createBet()"><p>Crear nueva apuesta</p></button>
+<div class="ui three column doubling stackable grid">
+  <div *ngFor="let bet of bets" class="column">
+    <div class="column">
+      <div class="ui people shape">
+        <div class="sides">
+          <div class="active side">
+            <div class="ui card">
+              <div class="image">
+                <img src="../assets/apuesta-img.png">
+              </div>
+              <div class="content">
+                <div class="header">{{bet.titulo}}</div>
+                <div class="meta">
+                  <a>Precio participación: {{bet.coste}}€</a>
+                </div>
+              </div>
+              <div class="extra content">
+                <span>
+            <i class="user icon" ></i>
+           {{bet.participantes}} Participantes
+          </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="column">
-    <div class="ui segment">
-      <img>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-      <img>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-      <img>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-      <img>
-    </div>
-  </div>
-</div>

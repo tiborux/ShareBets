@@ -5,8 +5,9 @@ import { Component } from '@angular/core';
     templateUrl: 'footer.component.html',
     styles: [`
     .ui.footer{
-            background: #263238;
-      color: #fff;
+        background: #263238;
+        color: #fff;
+        margin-top:10em;
         padding: 48px;
     }
 `]

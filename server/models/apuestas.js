@@ -1,23 +1,27 @@
-module.exports = (sequelize, DataType) => {
-  const Bets = sequelize.define('apuestas', {
+module.exports = (sequelize, Sequelize) => {
+  const Bet = sequelize.define('apuestas', {
     id: {
-      type: DataType.INTEGER,
+      type: Sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true
     },
-    id_usuario: 
-    {
-      type: DataType.INTEGER
+    titulo: {
+      type: Sequelize.STRING
     },
-     id_apuesta: 
-     {
-      type: DataType.INTEGER
-     }
-  },
-  {
-    createdAt: false,
-    updatedAt: false
+     coste: Sequelize.INTEGER,
+     beneficio: Sequelize.INTEGER
+  }, {
+    updatedAt: false,
+    classMethods: {
+      associate: (models) => {
+      Bet.belongsTo(models['usuarios_apuestas'], {
+          foreignKey: 'id',
+           targetKey: 'id_apuesta'
+       });
+      }
+    },
+    freezeTableName: true
   });
 
-  return Bets;
+  return Bet;
 };

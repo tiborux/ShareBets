@@ -1,0 +1,14 @@
+<form class="ui form" (ngSubmit)="createBet($event)">
+  <div class="form-group">
+    <label>Titulo de la apuesta</label>
+    <input type="text" required [(ngModel)]="titulo" name="titulo" placeholder="Titulo de apuesta">
+  </div>
+  <div class="form-group">
+    <label>Precio por participación:</label>
+    <input type="text" required [(ngModel)]="coste" name="coste" placeholder="Precio">
+  </div>
+
+  <div class="form-group">
+    <button class="ui button" type="submit">Crear apuesta</button>
+  </div>
+</form>

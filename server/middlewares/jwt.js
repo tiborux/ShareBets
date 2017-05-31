@@ -4,7 +4,7 @@ const config = require('../config/env.json');
 
 exports.createToken = (user) => {  
   var payload = {
-    sub: user._id,
+    sub: user.id,
     iat: moment().unix(),
     exp: moment().add(config.EXP, "days").unix(),
   };
@@ -28,5 +28,6 @@ exports.isAuthed = (req, res, next) => {
   }
 
   req.user = payload.sub;
+  console.log(payload);
   next();
 }

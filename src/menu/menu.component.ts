@@ -17,4 +17,9 @@ export class MenuComponent implements OnInit {
         this.userService.isLogged$.subscribe(res => this.login = res);
     }
 
+    logout(event){
+        this.userService.setLogged(false);
+        this.userService.logoutUser();
+    }
+
 }

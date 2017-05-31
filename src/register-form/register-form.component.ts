@@ -46,4 +46,5 @@ export class RegisterFormComponent {
         var user = new User(this.usuario, this.password, this.email, this.nombre, this.apellidos);
         this.userService.registerUser(this.url, user).subscribe(this.sucess.bind(this), this.error);
     }
+
 }
