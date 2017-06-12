@@ -21,6 +21,7 @@ import { HistoryComponent } from "history/history.component";
 import { ChangePasswordComponent } from "change-password/change-password.component";
 import { SendEmailComponent } from "send-email/send-email.component";
 import { InitializeModal } from "directives/modal";
+import { CardBetComponent } from "card-bet/card-bet.component";
 @NgModule({
   declarations: [
     MainComponent,
@@ -36,7 +37,8 @@ import { InitializeModal } from "directives/modal";
     HistoryComponent,
     ChangePasswordComponent,
     SendEmailComponent,
-    InitializeModal
+    InitializeModal,
+    CardBetComponent
   ],
   imports: [
     BrowserModule,

@@ -12,12 +12,14 @@ export class MenuComponent implements OnInit {
 
     constructor(private userService: UserService) { }
 
-//Observable que se actualiza cuando le avisas.
+    //Observable que se actualiza cuando le avisas.
     ngOnInit() {
-        this.userService.isLogged$.subscribe(res => this.login = res);
+            this.userService.isLogged$.subscribe(res => {
+                this.login = res;
+            });   
     }
 
-    logout(event){
+    logout(event) {
         this.userService.setLogged(false);
         this.userService.logoutUser();
     }

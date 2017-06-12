@@ -6,6 +6,7 @@ export class Bet {
         public coste: number,
         public beneficio: number,
         public participantes: number,
-        public administrador: boolean
+        public administrador: boolean,
+        public pagado: boolean
         ){}
 }

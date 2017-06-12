@@ -15,7 +15,7 @@ class BetsService {
     return this.db.findAll({
       include: [{
         model: this.tables.models.usuarios_apuestas,
-        attributes: ['administrador'],
+        attributes: ['administrador','pagado'],
         where: {
           id_usuario: userid
         }

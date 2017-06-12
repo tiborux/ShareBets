@@ -5,12 +5,10 @@
 .ui.segment {
     max-width: 80%;
 }
-
-.ui.footer[_ngcontent-wxs-31] {
-    margin-top: 30em;
-    padding: 48px;
-}
 .ui.teal.button, .ui.teal.buttons .button .create {
     background-color: #bdbdbd;
     margin-top: 3.55em;
+}
+.ui.card{
+    margin-bottom:1em;
 }
