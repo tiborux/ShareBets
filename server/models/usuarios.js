@@ -22,7 +22,9 @@ module.exports = (sequelize, Sequelize) => {
     nombre: {
       type: Sequelize.STRING
     },
-    apellidos: Sequelize.STRING
+    apellidos: Sequelize.STRING,
+    resetPasswordToken: Sequelize.STRING,
+    resetPasswordExpires: Sequelize.DATE
   }, {
     createdAt: false,
     updatedAt: false,

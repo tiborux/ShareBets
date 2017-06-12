@@ -12,3 +12,10 @@
     .ui.inverted.segment{
     margin-top: 0;
 }
+.ui.negative.message{
+  margin-top: 5em;
+}
+.ui.modal>:last-child {
+    text-align: center;
+    font-size: 3rem;
+}

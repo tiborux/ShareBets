@@ -7,7 +7,8 @@ module.exports = (controller, middlewares) => {
   router.get('/me', middlewares.jwt.isAuthed, controller.getMe.bind(controller));
   router.get('/users/:betId', middlewares.jwt.isAuthed, controller.getUsers.bind(controller));
   router.post('/new', middlewares.jwt.isAuthed,controller.createBet.bind(controller));
+  router.get('/history', middlewares.jwt.isAuthed,controller.getHistory.bind(controller));
   router.delete('/:id', middlewares.jwt.isAuthed, controller.delete.bind(controller));
-
+  router.put('/pay', middlewares.jwt.isAuthed, controller.updatePay.bind(controller));
   return router;
 };

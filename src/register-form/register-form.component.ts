@@ -12,23 +12,21 @@ import {Login} from "../models/login";
     styleUrls: ['register-form.component.css']
 })
 export class RegisterFormComponent {
-
-    messageSuccess = false;
-    constructor(
-        private userService: UserService,
-        private router: Router) { }
     usuario: string;
     password: string;
     email: string;
     nombre: string;
     apellidos: string;
     checked: boolean;
-
-    url: string = 'http://localhost:3000/users';
-
-    sucess(respuesta) {
-
-        this.messageSuccess = !this.messageSuccess;
+    exito:boolean;
+    url: string;
+    constructor(private userService: UserService,private router: Router){ 
+            this.exito=false;
+            this.url = 'http://localhost:3000/users';
+        }
+  
+    sucess(respuesta){
+        this.exito = !this.exito;
         setTimeout(() => 
         {
             this.userService.setLogin(this.usuario,this.password);

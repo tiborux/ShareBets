@@ -12,11 +12,10 @@ class BetsService {
   }
 
   getByUserId(userid) {
-    console.log(this.tables.models.usuarios_apuestas);
     return this.db.findAll({
       include: [{
         model: this.tables.models.usuarios_apuestas,
-        attributes: [],
+        attributes: ['administrador'],
         where: {
           id_usuario: userid
         }
@@ -38,8 +37,24 @@ class BetsService {
     });
   }
 
-  create(model) {
-    return this.db.create(model);
+  create(model,userId) {
+    return this.db.create(model)
+    .then((apuesta) => {
+      console.log(model);
+        return this.tables.models.usuarios_apuestas.create({
+           id_usuario: userId,
+           id_apuesta: apuesta.get("id"),
+           administrador: model.administrador
+       })
+    })  
+  }
+  updatePago(body,user) {
+    return this.tables.models.usuarios_apuestas.update({pagado: body.pago}, {
+          where: { 
+            id_usuario: user,
+            id_apuesta: body.id_apuesta
+          }
+        });
   }
   delete(id) {
     return this.db.destroy({

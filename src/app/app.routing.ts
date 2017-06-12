@@ -8,6 +8,9 @@ import { ContentBetComponent } from "content-bet/content-bet.component";
 import { AuthGuard } from './auth.guard';
 import { CreateBetComponent } from "create-bet/create-bet.component";
 import { ProfileComponent } from "profile/profile.component";
+import { HistoryComponent } from "history/history.component";
+import { ChangePasswordComponent } from "change-password/change-password.component";
+import { SendEmailComponent } from "send-email/send-email.component";
 
 export const routes:Routes=[
   { path: 'app',
@@ -16,9 +19,12 @@ export const routes:Routes=[
       { path: 'login', component: LoginComponent },
       { path: 'inicio', component: ContentHomeComponent},
       { path: 'register', component: RegisterFormComponent },
-      { path: 'apuestas', component: ContentBetComponent, canActivate: [AuthGuard] },
-      { path: 'crear.apuesta', component: CreateBetComponent, canActivate: [AuthGuard] },
-      { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
+      { path: 'bets', component: ContentBetComponent, canActivate: [AuthGuard] },
+      { path: 'create.bet', component: CreateBetComponent, canActivate: [AuthGuard] },
+      { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+      { path: 'history', component: HistoryComponent, canActivate: [AuthGuard] },
+      { path: 'reset', component: SendEmailComponent},
+      { path: 'forgot', component: ChangePasswordComponent}
     ]},
       { path: '**', redirectTo:'/app/inicio',pathMatch: 'full' }
 ]

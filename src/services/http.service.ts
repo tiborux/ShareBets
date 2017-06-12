@@ -11,7 +11,9 @@ export class HttpService {
   get(url, options: RequestOptions): Observable<any> {
     return this.http.get(url, this.setOptions(options))
       .map(this.extractData)
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //Show errors if any
+      .catch((error: any) => {
+        throw (error.json() || 'Server error'); //Show errors if any
+      })
   }
 
   post(url, body, options: any = {}): Observable<any> {

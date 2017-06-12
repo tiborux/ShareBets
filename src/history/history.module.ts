@@ -2,18 +2,19 @@
 import { NgModule } from '@angular/core';
 
 // This Module's Components
-import { RegisterFormComponent } from './register-form.component';
+import { HistoryComponent } from './history.component';
+
 @NgModule({
     imports: [
-       
+
     ],
     declarations: [
-        RegisterFormComponent,
+        HistoryComponent,
     ],
     exports: [
-        RegisterFormComponent,
+        HistoryComponent,
     ]
 })
-export class RegisterFormModule {
+export class HistoryModule {
 
 }

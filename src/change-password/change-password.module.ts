@@ -2,18 +2,19 @@
 import { NgModule } from '@angular/core';
 
 // This Module's Components
-import { RegisterFormComponent } from './register-form.component';
+import { ChangePasswordComponent } from './change-password.component';
+
 @NgModule({
     imports: [
-       
+
     ],
     declarations: [
-        RegisterFormComponent,
+        ChangePasswordComponent ,
     ],
     exports: [
-        RegisterFormComponent,
+        ChangePasswordComponent ,
     ]
 })
-export class RegisterFormModule {
+export class ChangePasswordModule {
 
 }

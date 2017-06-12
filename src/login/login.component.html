@@ -1,4 +1,16 @@
-<div class="ui middle aligned center aligned grid">
+<div class="ui basic modal">
+   <p class="bienvenida"> Bienvenido {{usuario}}</p>
+</div>
+
+<div class="ui negative message" *ngIf="exito">
+  <i class="close icon"></i>
+  <div class="header">
+    El usuario/contraseña es incorrecto.
+  </div>
+  <p>Intentelo de nuevo.</p>
+</div>
+
+<div class="ui middle aligned center aligned grid" *ngIf="transition">
   <div class="column">
     <h2 class="ui teal image header">
       <div class="content">
@@ -29,7 +41,9 @@
     <div class="ui message">
     ¿No tienes cuenta? <a [routerLink]="['/app/register']">Regístrate</a>
     </div>
+     <div class="ui message">
+    ¿Has olvidado tu contraseña? <a [routerLink]="['/app/reset']">Recordar contraseña</a>
+    </div>
   </div>
 </div>
-
 

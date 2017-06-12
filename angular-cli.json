@@ -24,7 +24,7 @@
       ],
       "scripts": [
       "../node_modules/jquery/dist/jquery.min.js",
-      "../semantic/semantic.min.js"
+     "../semantic/semantic.min.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

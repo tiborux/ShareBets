@@ -35,6 +35,7 @@ class UserMapper {
       apellidos: inputUser.apellidos
     };
   }
+
 }
 
 module.exports = new UserMapper();

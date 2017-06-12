@@ -13,12 +13,14 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main.component';
 import { HttpService } from "services/http.service";
-import { RegisterSuccessMessageComponent } from "messages/register-success.component";
 import { ContentBetComponent } from "content-bet/content-bet.component";
 import {AuthGuard} from './auth.guard';
 import { CreateBetComponent } from "create-bet/create-bet.component";
 import { ProfileComponent } from "profile/profile.component";
-
+import { HistoryComponent } from "history/history.component";
+import { ChangePasswordComponent } from "change-password/change-password.component";
+import { SendEmailComponent } from "send-email/send-email.component";
+import { InitializeModal } from "directives/modal";
 @NgModule({
   declarations: [
     MainComponent,
@@ -28,10 +30,13 @@ import { ProfileComponent } from "profile/profile.component";
     ContentHomeComponent,
     LoginComponent,
     RegisterFormComponent,
-    RegisterSuccessMessageComponent,
     ContentBetComponent,
     CreateBetComponent,
-    ProfileComponent
+    ProfileComponent,
+    HistoryComponent,
+    ChangePasswordComponent,
+    SendEmailComponent,
+    InitializeModal
   ],
   imports: [
     BrowserModule,

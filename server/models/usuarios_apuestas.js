@@ -12,6 +12,14 @@ module.exports = (sequelize, DataType) => {
      id_apuesta: 
      {
       type: DataType.INTEGER
+     },
+     administrador:
+     {
+       type: DataType.BOOLEAN
+     },
+     pagado:
+     {
+       type: DataType.BOOLEAN
      }
   },
   {

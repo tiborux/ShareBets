@@ -66,4 +66,23 @@ export class UserService {
     updateUser(url,body){
       return this.httpRequest.put(url,body,this.options);
     }
+
+    getHistory(url){
+      return this.httpRequest.get(url,this.options);
+    }
+     deleteUser(url){
+      return this.httpRequest.delete(url,this.options);
+    }
+    sendEmail(url,body){
+      return this.httpRequest.post(url,body,this.options);
+    }
+    getByToken(url){
+      return this.httpRequest.get(url,this.options);
+    }
+    updatePassword(url,body){
+      return this.httpRequest.put(url,body,this.options);
+    }
+    updatePago(url,body){
+      return this.httpRequest.put(url,body,this.options);
+    }
 }

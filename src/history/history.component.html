@@ -1,0 +1,25 @@
+<table class="ui sortable celled table">
+  <thead>
+    <tr>
+      <th>Nombre de la apuesta</th>
+      <th>Fecha/hora</th>
+      <th>Apuesta</th>
+      <th>Beneficio</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let bet of bets">
+    <tr>
+      <td>{{bet.titulo}}</td>
+      <td>{{bet.createdAt}}</td>
+      <td>{{bet.coste}}€</td>
+      <td>{{bet.beneficio}}€</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="table-responsive">
+				<p class="text-center" id="table-loading">
+					<i class="text-primary fa fa-circle-o-notch fa-spin fa-5x fa-fw"></i>
+				</p>
+				<table id="table-example" class="table table-striped table-bordered"></table>
+</div>

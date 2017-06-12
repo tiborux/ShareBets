@@ -2,11 +2,15 @@
 <div class="ui three column doubling stackable grid">
   <div *ngFor="let bet of bets" class="column">
     <div class="column">
+      
       <div class="ui people shape">
+      
         <div class="sides">
           <div class="active side">
             <div class="ui card">
-              <div class="image">
+              <div class="ui fluid image">
+                  <a class="ui red ribbon label" *ngIf="!pagado">No pagado</a>
+                  <a class="ui green ribbon label" *ngIf="pagado">Pagado</a>
                 <img src="../assets/apuesta-img.png">
               </div>
               <div class="content">
@@ -20,6 +24,10 @@
             <i class="user icon" ></i>
            {{bet.participantes}} Participantes
           </span>
+              </div>
+              <div class="form-group">
+                <button class="ui green button" *ngIf="!administrador && !pagado" (click)="pagar($event)">Pagar</button>
+                <button class="ui green button" *ngIf="administrador" type="submit">Administrar</button>
               </div>
             </div>
           </div>

@@ -2,18 +2,19 @@
 import { NgModule } from '@angular/core';
 
 // This Module's Components
-import { RegisterFormComponent } from './register-form.component';
+import { SendEmailComponent } from './send-email.component';
+
 @NgModule({
     imports: [
-       
+
     ],
     declarations: [
-        RegisterFormComponent,
+        SendEmailComponent ,
     ],
     exports: [
-        RegisterFormComponent,
+        SendEmailComponent ,
     ]
 })
-export class RegisterFormModule {
+export class SendEmailModule {
 
 }

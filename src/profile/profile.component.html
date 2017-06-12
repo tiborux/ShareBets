@@ -1,3 +1,6 @@
+
+<button class="negative ui right floated button" (click)="deleteUser($event)" id="logIn">Darse de baja</button>
+
 <form class="ui disabled form">
   <div class="form-group">
     <label>Contraseña</label>
@@ -13,13 +16,35 @@
   </div>
   <div class="form-group">
     <label>Apellidos</label>
-    <input type="text"[(ngModel)]="apellidos" name="apellidos" placeholder="Apellidos" [disabled]="is_edit">
+    <input type="text" [(ngModel)]="apellidos" name="apellidos" placeholder="Apellidos" [disabled]="is_edit">
   </div>
   <div class="form-group" (click)="editUser($event)" *ngIf="is_edit">
     <button class="ui button">Editar</button>
   </div>
-   <div class="form-group"  *ngIf="!is_edit" >
-    <button class="ui submit button" (click)="updateUser($event)" >Guardar</button>
-    <button class="ui button" (click)="editUser($event)">Cancelar</button>
+
+  <div class="ui buttons" *ngIf="!is_edit">
+    <button class="ui button" (click)="editUser($event)">Cancel</button>
+    <div class="or" data-text="o"></div>
+    <button class="ui positive button active" (click)="updateUser($event)">Guardar</button>
   </div>
 </form>
+
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Borrar tu cuenta
+  </div>
+    <div class="description">
+      <p>¿Estas seguro que quieres borrar tu cuenta?</p>
+    </div>
+  
+  <div class="actions">
+    <div class="ui red deny button" >
+      No
+    </div>
+    <div class="ui positive right labeled icon button" (click)="confirm($event)">
+      Si
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>

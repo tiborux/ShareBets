@@ -18,11 +18,11 @@ export class CreateBetComponent {
 
     createBet(event: any) {
         event.preventDefault();
-        var bet = new Bet(null,this.titulo, this.coste,0,null);
-        this.userService.createBet(this.url, bet).subscribe(this.sucess.bind(this), this.error);
+        var bet = new Bet(null,this.titulo,null,this.coste,0,null,true);
+        this.userService.createBet(this.url,bet).subscribe(this.sucess.bind(this), this.error);
     }
-    sucess(respuesta) {
-            this.router.navigate(['/app/apuestas']);
+    sucess(respuesta){
+            this.router.navigate(['/app/bets']);
     }
 
     error(respuesta) {

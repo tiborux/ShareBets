@@ -10,11 +10,11 @@
 </div>
 
 <div *ngIf="login" class="ui top fixed menu">
-    <a class="item" [routerLink]="['/app/apuestas']">
+    <a class="item" [routerLink]="['/app/bets']">
         <img src="../assets/logo.png">
         </a>
-  <a class="item" [routerLink]="['/app/apuestas']" >Mis apuestas</a>
-  <a class="item" [routerLink]="['/app/']">Historial</a>
+  <a class="item" [routerLink]="['/app/bets']" >Mis apuestas</a>
+  <a class="item" [routerLink]="['/app/history']">Historial</a>
   <div class="right menu">
     <a class="item" [routerLink]="['/app/profile']">Mi perfil</a>
     <a class="item" (click)="logout($event)" [routerLink]="['/app/login']">Cerrar sesión</a>
