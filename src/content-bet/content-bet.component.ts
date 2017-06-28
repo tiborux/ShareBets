@@ -15,11 +15,10 @@ export class ContentBetComponent implements OnInit {
     bets = [];
     count: number = 0;
     participantes: number;
-    administrador: boolean;
     pagado: boolean
     ngOnInit() {
         this.userService.getBets(this.url).subscribe(this.sucess.bind(this), this.error);
-        this.administrador = false;
+
     }
 
     sucess(respuesta) {
@@ -33,12 +32,9 @@ export class ContentBetComponent implements OnInit {
         this.count = 0;
         for (let user of respuesta.usuarios) {
             this.count++;
+            
         }
-        if (data.usuarios_apuesta.administrador) {
-            this.administrador = !this.administrador;
-        }
-        
-        var bet = new Bet(data.id, data.titulo, data.createdAt, data.coste, data.beneficio, this.count, this.administrador, data.usuarios_apuesta.pagado);
+        var bet = new Bet(data.id, data.titulo, data.createdAt, data.coste, data.beneficio, this.count, data.usuarios_apuesta.administrador, data.usuarios_apuesta.pagado,null,null,null,null);
         this.bets.push(bet);
 
     }

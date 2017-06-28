@@ -49,7 +49,7 @@ class LoginController {
           }
         });
         var mailOptions = {
-          from: 'Sharebet reset password <sharebets.reset@gmail.com>',
+          from: 'Sharebet recuperación de contraseña <sharebets.reset@gmail.com>',
           to: req.body.email,
           subject: 'Sharebet: Reinicio de contraseña',
           text: 'Has recibido este correo por que tu (o alguien) ha solicitado una contraseña nueva.\n\n' +

@@ -9,7 +9,10 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     },
      coste: Sequelize.INTEGER,
-     beneficio: Sequelize.INTEGER
+     beneficio: Sequelize.INTEGER,
+     fecha_expires: Sequelize.DATE,
+     fecha_apuesta: Sequelize.DATE,
+     direccion_paypal: Sequelize.STRING,
   }, {
     updatedAt: false,
     classMethods: {

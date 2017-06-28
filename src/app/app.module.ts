@@ -22,6 +22,9 @@ import { ChangePasswordComponent } from "change-password/change-password.compone
 import { SendEmailComponent } from "send-email/send-email.component";
 import { InitializeModal } from "directives/modal";
 import { CardBetComponent } from "card-bet/card-bet.component";
+import { AnimatedItemComponent } from "animated-item-list/animated-item.component";
+import { InitializeDropdown } from "directives/dropdown";
+import { InitializeFormValidation } from "directives/formValidation";
 @NgModule({
   declarations: [
     MainComponent,
@@ -38,7 +41,10 @@ import { CardBetComponent } from "card-bet/card-bet.component";
     ChangePasswordComponent,
     SendEmailComponent,
     InitializeModal,
-    CardBetComponent
+    CardBetComponent,
+    InitializeModal,
+    AnimatedItemComponent,
+    InitializeDropdown
   ],
   imports: [
     BrowserModule,
@@ -46,6 +52,7 @@ import { CardBetComponent } from "card-bet/card-bet.component";
     HttpModule,
     NgSemanticModule,
     routing
+    
   ],
   providers: [
     UserService,

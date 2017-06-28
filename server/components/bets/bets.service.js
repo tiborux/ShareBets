@@ -15,7 +15,7 @@ class BetsService {
     return this.db.findAll({
       include: [{
         model: this.tables.models.usuarios_apuestas,
-        attributes: ['administrador','pagado'],
+        attributes: ['administrador', 'pagado'],
         where: {
           id_usuario: userid
         }
@@ -37,24 +37,33 @@ class BetsService {
     });
   }
 
-  create(model,userId) {
+  create(model, userId) {
     return this.db.create(model)
-    .then((apuesta) => {
-      console.log(model);
+      .then((apuesta) => {
         return this.tables.models.usuarios_apuestas.create({
-           id_usuario: userId,
-           id_apuesta: apuesta.get("id"),
-           administrador: model.administrador
-       })
-    })  
+          id_usuario: userId,
+          id_apuesta: apuesta.get("id"),
+          administrador: model.administrador
+        })
+      })
+      .then((apuesta) => {
+        console.log(apuesta);
+        for (let id of model.usuarios)
+          this.tables.models.usuarios_apuestas.create({
+            id_usuario: id,
+            id_apuesta: apuesta.id_apuesta,
+            administrador: 0
+          })
+      }
+      )
   }
-  updatePago(body,user) {
-    return this.tables.models.usuarios_apuestas.update({pagado: body.pago}, {
-          where: { 
-            id_usuario: user,
-            id_apuesta: body.id_apuesta
-          }
-        });
+  updatePago(body, user) {
+    return this.tables.models.usuarios_apuestas.update({ pagado: body.pago }, {
+      where: {
+        id_usuario: user,
+        id_apuesta: body.id_apuesta
+      }
+    });
   }
   delete(id) {
     return this.db.destroy({

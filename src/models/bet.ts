@@ -7,6 +7,10 @@ export class Bet {
         public beneficio: number,
         public participantes: number,
         public administrador: boolean,
-        public pagado: boolean
+        public pagado: boolean,
+        public fecha_expires: Date,
+        public fecha_apuesta: Date,
+        public direccion_paypal: string,
+        public usuarios: any[]
         ){}
 }

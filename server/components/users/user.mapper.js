@@ -5,6 +5,7 @@ class UserMapper {
 
   outputGet(outputUser) {
     return  {
+      id: outputUser.id,
       usuario: outputUser.usuario,
       email: outputUser.email,
       nombre: outputUser.nombre,

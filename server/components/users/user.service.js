@@ -48,7 +48,6 @@ class UserService {
           });
         }
       });
-
   }
 
   create(model) {

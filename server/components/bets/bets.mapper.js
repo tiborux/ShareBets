@@ -33,12 +33,15 @@ class BetsMapper {
   }
 */
   inputUpdate(inputBet) {
-    console.log(inputBet);
     return  {
       titulo: inputBet.titulo,
       coste: inputBet.coste,
       beneficio: inputBet.beneficio,
-      administrador: inputBet.administrador
+      fecha_expires: inputBet.fecha_expires,
+      fecha_apuesta:inputBet.fecha_apuesta,
+      direccion_paypal: inputBet.direccion_paypal,
+      administrador: inputBet.administrador,
+      usuarios: inputBet.usuarios
     };
   }
 }

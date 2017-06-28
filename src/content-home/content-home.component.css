@@ -1,8 +1,13 @@
 .ui.inverted.segment, .ui.primary.inverted.segment {
     background: #abded9;
-    margin-top:56px;
+    margin-top:3%;
+    padding-bottom: 3%;
 }
-.ui.text.container{
-margin-bottom: 40px;
+
+img.ui.bordered.image {
+    border: 0px solid rgba(0,0,0,.1);
 }
-    
+.ui.vertical.stripe {
+    padding: 0em 0em;
+    padding-bottom: 0em;
+}

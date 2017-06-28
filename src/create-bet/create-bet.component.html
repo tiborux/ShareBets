@@ -1,14 +1,51 @@
-<form class="ui form" (ngSubmit)="createBet($event)">
-  <div class="form-group">
-    <label>Titulo de la apuesta</label>
-    <input type="text" required [(ngModel)]="titulo" name="titulo" placeholder="Titulo de apuesta">
+<form class="ui form">
+   
+  <label>Tipo de apuesta:</label>
+  <div class="ui fluid selection dropdown">
+    <input type="hidden" name="user">
+    <i class="dropdown icon"></i>
+    <div class="default text">Selecciona la apuesta</div>
+    <div class="menu">
+      <div class="item" data-value="bonoloto" (click)="selection($event.target.innerText)">
+        <img class="ui mini avatar image" src="/assets/bonoloto.png"> Bonoloto
+      </div>
+      <div class="item" data-value="euro" (click)="selection($event.target.innerText)">
+        <img class="ui mini avatar image" src="/assets/euromillon.png"> Euromillón
+      </div>
+      <div class="item" data-value="primitiva" (click)="selection($event.target.innerText)">
+        <img class="ui mini avatar image" src="/assets/primitiva.png"> Primitiva
+      </div>
+    </div>
   </div>
   <div class="form-group">
-    <label>Precio por participación:</label>
-    <input type="text" required [(ngModel)]="coste" name="coste" placeholder="Precio">
+    <label>Email de paypal:</label>
+    <input type="text" required [(ngModel)]="paypal" name="paypal" placeholder="Email de Paypal">
+    <label>Fecha limite para unirse a la apuesta:</label>
+    <input type="date" required [value]="fecha_expires | date:'yyyy-MM-dd'" (input)="fecha_expires=setFecha_Expires($event.target.valueAsDate)"
+    />
+    <label>Fecha realización de la apuesta:</label>
+    <input type="date" required [value]="fecha_apuesta | date:'yyyy-MM-dd'" (input)="fecha_apuesta=setFecha_Apuesta($event.target.valueAsDate)"
+    />
+    <label>Invitar participantes:</label>
+    <div>
+      <div style="position: relative;">
+        <input type="text" required [(ngModel)]="usuario" name="usuario" placeholder="Nombre usuario">
+        <div class="ui vertical labeled icon buttons" style="position: absolute; bottom: 0; right: 0;">
+          <button class="ui button" (click)="invitar($event)">
+        <i class="plus icon"></i>
+          Invitar
+        </button>
+        
+        </div>
+      </div>
+     <label class="message">{{message}}</label>
+    </div>
+    <div class="ui middle aligned divided list">
+      <animated-item [usuarios]="usuarios"></animated-item>
+    </div>
   </div>
 
   <div class="form-group">
-    <button class="ui button" type="submit">Crear apuesta</button>
+    <button class="ui button" type="submit" (click)="createBet($event)">Crear apuesta</button>
   </div>
 </form>

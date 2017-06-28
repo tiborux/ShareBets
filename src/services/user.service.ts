@@ -62,7 +62,9 @@ export class UserService {
     getMe(url){
       return this.httpRequest.get(url,this.options);
     }
-
+    getUser(url){
+      return this.httpRequest.get(url,this.options);
+    }
     updateUser(url,body){
       return this.httpRequest.put(url,body,this.options);
     }

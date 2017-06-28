@@ -1,31 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from "services/user.service";
 import { Bet } from "models/bet";
+import { Subscription }   from 'rxjs/Subscription';
+
 @Component({
     selector: 'history',
     templateUrl: 'history.component.html',
     styleUrls: ['./history.component.css'],
 })
 
-export class HistoryComponent implements OnInit{
+export class HistoryComponent implements OnInit {
 
     url: string;
     bets = [];
-    
+    settings = {
+        columns: {
+            nombre: {
+                title: 'Nombre de la apuesta'
+            },
+            fecha: {
+                title: 'Fecha/hora'
+            },
+            apuesta: {
+                title: 'Apuesta'
+            },
+            beneficio: {
+                title: 'Beneficio'
+            }
+        }
+    };
+
     constructor(private userService: UserService) {
         this.url = 'http://localhost:3000/bets/history';
-        
+
     }
-    
+
     ngOnInit(): void {
         this.userService.getHistory(this.url).subscribe(this.sucess.bind(this), this.error);
     }
     sucess(respuesta) {
         for (let data of respuesta) {
-            let bet = new Bet(data.id, data.titulo, this.getDate(data.createdAt), data.coste, data.beneficio,0,null);
+            let bet = new Bet(data.id, data.titulo, this.getDate(data.createdAt), data.coste, data.beneficio, 0, null, data.pagado,null,null,null,null);
             this.bets.push(bet);
         }
-        console.log(this.bets);
     }
 
     error(respuesta) {

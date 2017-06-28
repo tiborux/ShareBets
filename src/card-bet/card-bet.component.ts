@@ -9,19 +9,23 @@ import { Router } from "@angular/router";
 })
 
 export class CardBetComponent implements OnInit {
-  
+
     @Input() bet: Bet;
     url_pay: string;
     pagado: boolean;
+    administrador: boolean;
     id: number;
     constructor(private userService: UserService) {
         this.url_pay = 'http://localhost:3000/bets/pay/';
     }
-  ngOnInit(): void {
-      if(this.bet.pagado){   
-          this.pagado=true;
-      }
-
+    ngOnInit(): void {
+        console.log(this.bet);
+        if (this.bet.pagado) {
+            this.pagado = true;
+        }
+       if(this.bet.administrador){
+           this.administrador = true;
+       }
     }
     pagar(event): void {
         this.pagado = !this.pagado;
