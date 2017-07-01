@@ -9,6 +9,20 @@
     background-color: #bdbdbd;
     margin-top: 3.55em;
 }
+.ui.green.button{
+        margin: 1em;
+}
 .ui.card{
-    margin-bottom:1em;
+    margin-bottom:2em;
+    width: 20em;
+}
+p{
+    font-weight: bold;
+    padding-top: 0.5em;
+}
+.ui.footer{
+    padding-top:2em;
+}
+.ui.card>.image>img {
+        height: 20em;
 }

@@ -24,7 +24,7 @@ import { InitializeModal } from "directives/modal";
 import { CardBetComponent } from "card-bet/card-bet.component";
 import { AnimatedItemComponent } from "animated-item-list/animated-item.component";
 import { InitializeDropdown } from "directives/dropdown";
-import { InitializeFormValidation } from "directives/formValidation";
+import { DetailsBetComponent } from "details-bet/details-bet.component";
 @NgModule({
   declarations: [
     MainComponent,
@@ -44,7 +44,8 @@ import { InitializeFormValidation } from "directives/formValidation";
     CardBetComponent,
     InitializeModal,
     AnimatedItemComponent,
-    InitializeDropdown
+    InitializeDropdown,
+    DetailsBetComponent
   ],
   imports: [
     BrowserModule,

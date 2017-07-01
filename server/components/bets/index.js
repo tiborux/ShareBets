@@ -5,4 +5,5 @@ module.exports = (app, db, middlewares, config) => {
   const controller = require('./bets.controller.js')(service, mapper, middlewares);
 
   app.use('/bets', router(controller, middlewares));
+
 };

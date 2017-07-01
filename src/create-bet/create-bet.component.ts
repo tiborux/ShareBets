@@ -31,7 +31,7 @@ export class CreateBetComponent implements OnInit {
         this.dropdown.ngOnInit();
     }
     createBet(event: any) {
-        var bet = new Bet(null, this.titulo, null, 0, 0, null, true, null, this.fecha_expires, this.fecha_apuesta, this.paypal,this.id_usuarios);
+        var bet = new Bet(null, this.titulo, null, 0, 0, null, true, null, this.fecha_expires, this.fecha_apuesta, this.paypal,this.id_usuarios,null,null);
         this.userService.createBet(this.url, bet).subscribe(this.sucess.bind(this), this.error);
     }
     sucess(respuesta) {

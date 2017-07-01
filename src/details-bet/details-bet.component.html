@@ -1,45 +1,36 @@
-<div class="ui people shape">
-  <div class="sides">
-    <div class="active side">
-      <div class="ui card">
-        <div class="image">
-          <img src="../assets/apuesta-img.png">
-        </div>
-        <div class="content">
-          <div class="header">{{Bet.title}}</div>
-          <div class="meta">
-            <a>Precio participación: {{Bet.coste}}</a>
-          </div>
-        </div>
-        <div class="extra content">
-          <span>
-            <i class="user icon"></i>
-            151 Friends
-          </span>
-        </div>
-      </div>
+<button class="negative ui right floated button" (click)="endBet($event)" id="endBet">Finalizar apuesta</button>
+<form class="ui form" (ngSubmit)="updateApuesta($event)">
+  <div class="field">
+    <label>Coste de participación:</label>
+    <input type="text" [(ngModel)]="coste" name="coste" placeholder="coste">
+  </div>
+  <div class="field">
+    <label>Beneficio: </label>
+    <input type="text" [(ngModel)]="beneficio" name="beneficio" placeholder="beneficio">
+  </div>
+  <div class="field">
+    <label>Foto del boleto: </label>
+    <input type="file" (change)="setFoto($event)">
+  </div>
+  <div class="form-group">
+    <button class="ui green button" type="submit">Actualizar</button>
+  </div>
+</form>
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Finalizar la apuesta
+  </div>
+    <div class="description">
+      <p>¿Estas seguro de que quieres finalizar la apuesta?</p>
     </div>
-    <div class="side">
-      <div class="ui card">
-        <div class="image">
-          <img src="/images/avatar/large/stevie.jpg">
-        </div>
-        <div class="content">
-          <a class="header">Stevie Feliciano</a>
-          <div class="meta">
-            <span class="date">Joined in 2014</span>
-          </div>
-          <div class="description">
-            Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            22 Friends
-          </a>
-        </div>
-      </div>
+  
+  <div class="actions">
+    <div class="ui red deny button" >
+      No
+    </div>
+    <div class="ui positive right labeled icon button" (click)="confirm($event)">
+      Si
+      <i class="checkmark icon"></i>
     </div>
   </div>
-</div>

@@ -40,7 +40,7 @@ export class HistoryComponent implements OnInit {
     }
     sucess(respuesta) {
         for (let data of respuesta) {
-            let bet = new Bet(data.id, data.titulo, this.getDate(data.createdAt), data.coste, data.beneficio, 0, null, data.pagado,null,null,null,null);
+            let bet = new Bet(data.id, data.titulo, this.getDate(data.createdAt), data.coste, data.beneficio, 0, null, data.pagado,null,null,null,null,null,null);
             this.bets.push(bet);
         }
     }

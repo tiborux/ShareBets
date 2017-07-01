@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     .ui.footer{
         background: #263238;
         color: #fff;
-        padding: 48px;
+        padding: 2em;
     }
 `]
 })

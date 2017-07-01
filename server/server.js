@@ -27,6 +27,6 @@ fs.readdirSync('./components')
 //drop and resync with { force: true }
 db.sync().then(() => {
   app.listen(3000, () => {
-    console.log('Express listening on port:', 3000);
+   
   });
 });

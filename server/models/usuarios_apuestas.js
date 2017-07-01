@@ -20,6 +20,10 @@ module.exports = (sequelize, DataType) => {
      pagado:
      {
        type: DataType.BOOLEAN
+     },
+      estado:
+     {
+       type: DataType.INTEGER
      }
   },
   {

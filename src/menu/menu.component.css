@@ -1,7 +1,7 @@
  .ui.menu{
         background:#50b5ac;
         height: 56px;
-    min-height: 56px;
+        min-height: 56px;
         box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
        } 
     .ui.menu .item{

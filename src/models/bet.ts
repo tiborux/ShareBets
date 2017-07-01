@@ -1,3 +1,5 @@
+import { SafeResourceUrl } from "@angular/platform-browser";
+
 export class Bet {
     constructor(
         public id: number,
@@ -11,6 +13,8 @@ export class Bet {
         public fecha_expires: Date,
         public fecha_apuesta: Date,
         public direccion_paypal: string,
-        public usuarios: any[]
+        public usuarios: any[],
+        public estado: number,
+        public foto: SafeResourceUrl
         ){}
 }

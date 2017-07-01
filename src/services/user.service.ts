@@ -15,6 +15,7 @@ export class UserService {
   private logged = new Subject<boolean>();
   status: boolean = false;
   options: RequestOptions;
+  id: number;
   // Observable string streams
   isLogged$ = this.logged.asObservable();
 
@@ -30,7 +31,7 @@ export class UserService {
     return this.logged.next(this.status);
   }
   //Ponemos que esta logueado y avisamos de que esta logueado
-  setLogged(status:boolean){
+  setLogged(status: boolean) {
     this.status = status;
     this.isLogged();
   }
@@ -43,48 +44,60 @@ export class UserService {
     return this.httpRequest.post(url, body);
   }
 
-   logoutUser() {
-        localStorage.removeItem('token');
-    }
+  logoutUser() {
+    localStorage.removeItem('token');
+  }
 
-    getBets(url){
-      return this.httpRequest.get(url, this.options);
-    }
+  getBets(url) {
+    return this.httpRequest.get(url, this.options);
+  }
 
-    getUsersBet(url){
-      return this.httpRequest.get(url, this.options);
-    }
+  getUsersBet(url) {
+    return this.httpRequest.get(url, this.options);
+  }
 
-    createBet(url,body){
-      return this.httpRequest.post(url, body);
-    }
+  createBet(url, body) {
+    return this.httpRequest.post(url, body);
+  }
 
-    getMe(url){
-      return this.httpRequest.get(url,this.options);
-    }
-    getUser(url){
-      return this.httpRequest.get(url,this.options);
-    }
-    updateUser(url,body){
-      return this.httpRequest.put(url,body,this.options);
-    }
+  getMe(url) {
+    return this.httpRequest.get(url, this.options);
+  }
+  getUser(url) {
+    return this.httpRequest.get(url, this.options);
+  }
+  updateUser(url, body) {
+    return this.httpRequest.put(url, body, this.options);
+  }
 
-    getHistory(url){
-      return this.httpRequest.get(url,this.options);
-    }
-     deleteUser(url){
-      return this.httpRequest.delete(url,this.options);
-    }
-    sendEmail(url,body){
-      return this.httpRequest.post(url,body,this.options);
-    }
-    getByToken(url){
-      return this.httpRequest.get(url,this.options);
-    }
-    updatePassword(url,body){
-      return this.httpRequest.put(url,body,this.options);
-    }
-    updatePago(url,body){
-      return this.httpRequest.put(url,body,this.options);
-    }
+  getHistory(url) {
+    return this.httpRequest.get(url, this.options);
+  }
+  deleteUser(url) {
+    return this.httpRequest.delete(url, this.options);
+  }
+  sendEmail(url, body) {
+    return this.httpRequest.post(url, body, this.options);
+  }
+  getByToken(url) {
+    return this.httpRequest.get(url, this.options);
+  }
+  updatePassword(url, body) {
+    return this.httpRequest.put(url, body, this.options);
+  }
+  updateEstado(url, body) {
+    return this.httpRequest.put(url, body, this.options);
+  }
+  setIdBet(id: number) {
+    this.id = id;
+  }
+  getIdbet() {
+    return this.id;
+  }
+  updateBet(url, body) {
+    return this.httpRequest.put(url, body, this.options);
+  }
+  endBet(url, body) {
+    return this.httpRequest.put(url, body, this.options);
+  }
 }
