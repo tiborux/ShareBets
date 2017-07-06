@@ -13,22 +13,6 @@ export class HistoryComponent implements OnInit {
 
     url: string;
     bets = [];
-    settings = {
-        columns: {
-            nombre: {
-                title: 'Nombre de la apuesta'
-            },
-            fecha: {
-                title: 'Fecha/hora'
-            },
-            apuesta: {
-                title: 'Apuesta'
-            },
-            beneficio: {
-                title: 'Beneficio'
-            }
-        }
-    };
 
     constructor(private userService: UserService) {
         this.url = 'http://localhost:3000/bets/history';
@@ -36,6 +20,7 @@ export class HistoryComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        
         this.userService.getHistory(this.url).subscribe(this.sucess.bind(this), this.error);
     }
     sucess(respuesta) {

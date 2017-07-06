@@ -1,4 +1,7 @@
 <button type="submit" id="create" class="ui fluid large teal submit button" (click)="createBet()"><p>Crear nueva apuesta</p></button>
+<div class="content">
 <div class="ui three column doubling stackable grid">
    <card-bet *ngFor="let bet of bets" [bet]="bet"></card-bet>
+   <h1 class="titulo" *ngIf="bet"> Aún no tienes ninguna apuesta</h1>
+</div>
 </div>

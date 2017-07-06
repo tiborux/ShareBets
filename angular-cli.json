@@ -19,12 +19,14 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../semantic/semantic.min.css",
-        "../node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
+        ".././semantic/semantic.min.css",
+        ".././node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
       ],
       "scripts": [
-      "../node_modules/jquery/dist/jquery.min.js",
-     "../semantic/semantic.min.js"
+      ".././node_modules/jquery/dist/jquery.min.js",
+     ".././semantic/semantic.min.js",
+     ".././src/js/paypal-button.min.js",
+     ".././src/js/tablesort.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

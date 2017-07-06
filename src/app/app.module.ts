@@ -25,6 +25,7 @@ import { CardBetComponent } from "card-bet/card-bet.component";
 import { AnimatedItemComponent } from "animated-item-list/animated-item.component";
 import { InitializeDropdown } from "directives/dropdown";
 import { DetailsBetComponent } from "details-bet/details-bet.component";
+
 @NgModule({
   declarations: [
     MainComponent,
@@ -46,6 +47,7 @@ import { DetailsBetComponent } from "details-bet/details-bet.component";
     AnimatedItemComponent,
     InitializeDropdown,
     DetailsBetComponent
+    
   ],
   imports: [
     BrowserModule,

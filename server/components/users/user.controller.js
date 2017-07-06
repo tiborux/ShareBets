@@ -16,6 +16,11 @@ class UserController {
     .then(this.mapper.outputGet.bind(this.mapper))
     .then(res.json.bind(res)).catch(res.send.bind(res));
   }
+  getByEmail(req, res) {
+    return this.service.getByEmail(req.params.email)
+    .then(this.mapper.outputGet.bind(this.mapper))
+    .then(res.json.bind(res)).catch(res.send.bind(res));
+  }
     getMe(req, res) {
     return this.service.getById(req.user)
     .then(this.mapper.outputGet.bind(this.mapper))

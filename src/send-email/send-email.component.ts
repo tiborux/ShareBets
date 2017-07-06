@@ -13,6 +13,7 @@ export class SendEmailComponent{
     url: string;
     email: string;
     exito: boolean;
+    url_email: string;
 constructor(private userService: UserService,private router: Router){
     this.exito=false;
     this.url = "http://localhost:3000/reset";
@@ -29,6 +30,9 @@ constructor(private userService: UserService,private router: Router){
         },
             3000);
          
+    }
+    sucessCorreo(respuesta) {
+        console.log(respuesta);
     }
 
     error(respuesta) {

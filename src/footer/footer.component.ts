@@ -7,7 +7,10 @@ import { Component } from '@angular/core';
     .ui.footer{
         background: #263238;
         color: #fff;
-        padding: 2em;
+        position:absolute;
+   bottom:0
+    height:25em;
+    width:100%;
     }
 `]
 })

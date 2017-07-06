@@ -19,7 +19,17 @@ class BetsService {
         where: {
           id_usuario: userid
         }
-      }]
+      }],
+      order: [
+            ['id', 'DESC'],
+        ],
+    });
+  }
+    getByBetId(betid) {
+    return this.db.find({
+        where: {
+          id: betid
+        }
 
     });
   }

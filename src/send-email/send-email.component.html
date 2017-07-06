@@ -5,10 +5,15 @@
   </div>
   <p>En el interior del correo encontrarás las instrucciones para restaurar tu contraseña.</p>
 </div>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
 <form class="ui form" (ngSubmit)="sendEmail($event)">
+   <h1>Restablecer contraseña </h1>
   <div class="required field">
     <label>Email</label>
-    <input type="text" required [(ngModel)]="email" name="email" placeholder="email">
+    <input type="email" required [(ngModel)]="email" name="email" placeholder="email">
   </div>
   <button type="submit" class="ui fluid large teal submit button">Enviar</button>
 </form>
+  </div>
+</div>

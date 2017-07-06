@@ -11,20 +11,37 @@ import { InitializeModal } from '../directives/modal'
     providers: [InitializeModal]
 })
 
-export class DetailsBetComponent {
+export class DetailsBetComponent implements OnInit {
     coste: number;
     beneficio: number;
     url: string;
     url_estado: string;
     image64: string;
     foto: string;
+    url_bet: string;
     constructor(private userService: UserService, private router: Router, private modal: InitializeModal) {
         this.url = 'http://localhost:3000/bets/';
+        this.url_bet = 'http://localhost:3000/bets/bet/';
         this.url_estado = 'http://localhost:3000/bets/end/';
     }
-    updateApuesta() {
+    ngOnInit(): void {
+        this.userService.getBet(this.url_bet + this.userService.getIdbet()).subscribe(this.successBet.bind(this), this.error);
+    }
 
-        this.userService.updateBet(this.url, { id: this.userService.getIdbet(), coste: this.coste, beneficio: this.beneficio, foto: this.foto }).subscribe(this.success.bind(this), this.error);
+    updateApuesta() {
+        if (this.foto != null) {
+            this.userService.updateBet(this.url, {
+                id: this.userService.getIdbet(), coste: this.coste,
+                beneficio: this.beneficio, foto: this.foto
+            }).subscribe(this.success.bind(this), this.error);
+        }
+        else{
+            this.userService.updateBet(this.url, {
+                id: this.userService.getIdbet(), coste: this.coste,
+                beneficio: this.beneficio
+            }).subscribe(this.success.bind(this), this.error);
+        }
+
     }
     setFoto(event) {
         const foto = new Blob([event.target.files[0]]);
@@ -38,6 +55,10 @@ export class DetailsBetComponent {
     success(respuesta) {
         this.router.navigate(['/app/bets']);
     }
+    successBet(respuesta) {
+        this.coste = respuesta.coste;
+        this.beneficio = respuesta.beneficio;
+    }
     error(respuesta) {
         console.log(respuesta);
     }
@@ -46,7 +67,7 @@ export class DetailsBetComponent {
     }
 
     confirm(event): void {
-        this.userService.endBet(this.url_estado, { id_apuesta:  this.userService.getIdbet(), estado: 3 }).subscribe(this.successDelete.bind(this), this.error);
+        this.userService.endBet(this.url_estado, { id_apuesta: this.userService.getIdbet(), estado: 3 }).subscribe(this.successDelete.bind(this), this.error);
     }
     successDelete(respuesta) {
         this.modal.hide();

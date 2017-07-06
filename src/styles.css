@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+    .masthead h1.ui.header {
+      margin-top: 0.5em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+      padding: 5em 2em;
+    }
+
+    body {
+      font-family: "Roboto";
+       margin:0;
+       padding:0;
+    height:100%;
+    }
+    #container {
+   min-height:100%;
+   position:relative;
+}

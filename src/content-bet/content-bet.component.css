@@ -5,15 +5,18 @@
 .ui.segment {
     max-width: 80%;
 }
-
-.ui.footer[_ngcontent-wxs-31] {
-    margin-top: 30em;
-    padding: 48px;
+.ui.column{
+    height: 40em;
 }
 .ui.teal.button, .ui.teal.buttons .button .create {
-    background-color: #bdbdbd;
+    background-color: #21BA45;
     margin-top: 3.55em;
 }
-.ui.footer{
-    padding-top:2em;
+.content{
+    margin-bottom: 5em;
+}
+.titulo{
+   padding: 10em;
+    padding-left: 20em;
+    color: #657786;
 }

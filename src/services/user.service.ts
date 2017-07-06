@@ -9,7 +9,10 @@ import { Login } from "../models/login";
 
 export class UserService {
 
-  constructor(private httpRequest: HttpService) { }
+  constructor(private httpRequest: HttpService) { 
+       this.boolSubject = new Subject<boolean>();
+        this.myBool$ = this.boolSubject.asObservable();
+  }
 
   login: Login = new Login("", "");
   private logged = new Subject<boolean>();
@@ -18,6 +21,8 @@ export class UserService {
   id: number;
   // Observable string streams
   isLogged$ = this.logged.asObservable();
+  myBool$: Observable<boolean>;
+  private boolSubject: Subject<boolean>;
 
   setLogin(user: string, password: string) {
     this.login = new Login(user, password);
@@ -27,14 +32,12 @@ export class UserService {
   }
 
   //Para mirar si esta logeado
-  isLogged() {
-    return this.logged.next(this.status);
-  }
+
   //Ponemos que esta logueado y avisamos de que esta logueado
-  setLogged(status: boolean) {
-    this.status = status;
-    this.isLogged();
-  }
+    setMyBool(newValue) {
+      this.myBool$ = newValue;
+      this.boolSubject.next(newValue);
+    }
   //Add new user 
   registerUser(url, body) {
     return this.httpRequest.post(url, body);
@@ -49,6 +52,9 @@ export class UserService {
   }
 
   getBets(url) {
+    return this.httpRequest.get(url, this.options);
+  }
+   getBet(url) {
     return this.httpRequest.get(url, this.options);
   }
 
@@ -75,6 +81,9 @@ export class UserService {
   }
   deleteUser(url) {
     return this.httpRequest.delete(url, this.options);
+  }
+  getEmail(url) {
+    return this.httpRequest.get(url, this.options);
   }
   sendEmail(url, body) {
     return this.httpRequest.post(url, body, this.options);

@@ -8,10 +8,11 @@ module.exports = (controller, middlewares) => {
   router.get('/users/:betId', middlewares.jwt.isAuthed, controller.getUsers.bind(controller));
   router.post('/new', middlewares.jwt.isAuthed,controller.createBet.bind(controller));
   router.get('/history', middlewares.jwt.isAuthed,controller.getHistory.bind(controller));
+  router.get('/bet/:id', middlewares.jwt.isAuthed,controller.getBet.bind(controller));
   router.delete('/:id', middlewares.jwt.isAuthed, controller.delete.bind(controller));
-  router.put('/pay', middlewares.jwt.isAuthed, controller.updatePay.bind(controller));
   router.put('/status', middlewares.jwt.isAuthed, controller.updateStatus.bind(controller));
   router.put('/end', middlewares.jwt.isAuthed, controller.endBet.bind(controller));
   router.put('/', middlewares.jwt.isAuthed, controller.updateBet.bind(controller));
+  router.post('/pay',controller.payout.bind(controller));
   return router;
 };

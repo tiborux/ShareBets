@@ -1,5 +1,18 @@
 .ui.table {
-    border-top: .5em solid #21BA45;
-    padding-top: 4em;
-    padding-bottom: 20em;
+  border-top: .5em solid #21BA45;
+    /* padding-top: 4em; */
+    padding-bottom: 1em;
+    margin-top: 7em;
+    margin-left: 2em;
+    margin-right: -4em;
+    padding-right: -20em;
+    size: auto;
+ 
+}
+
+.content{
+    margin-bottom: 29em;
+    margin-right: 5em;
+    margin-top: 2em;
+    height: 100%;
 }

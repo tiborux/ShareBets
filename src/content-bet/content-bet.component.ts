@@ -19,11 +19,12 @@ export class ContentBetComponent implements OnInit {
     participantes: number;
     pagado: boolean;
     foto: string;
+    bet: boolean;
 image: SafeResourceUrl;
     ngOnInit() {
         this.userService.getBets(this.url).subscribe(this.sucess.bind(this), this.error);
+        this.bet=true;
     }
-
     sucess(respuesta) {
 
         for (let data of respuesta) {
@@ -32,6 +33,7 @@ image: SafeResourceUrl;
     }
 
     sucessGetUsers(data, respuesta) {
+        this.bet=!this.bet;
         this.count = 0;
         for (let user of respuesta.usuarios) {
             this.count++;
@@ -44,11 +46,14 @@ image: SafeResourceUrl;
             this.image = '/assets/apuesta-img.png';
         }
         if(data.usuarios_apuesta.estado!=3){
+            
         var bet = new Bet(data.id, data.titulo, data.createdAt, data.coste, data.beneficio, this.count,
             data.usuarios_apuesta.administrador, data.usuarios_apuesta.pagado, data.fecha_expires, data.fecha_apuesta, null, null, data.usuarios_apuesta.estado,this.image );
             this.bets.push(bet);
         }
-
+   else{
+       this.bet=false;
+   }
     }
     error(respuesta) {
         console.log(respuesta);

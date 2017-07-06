@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
             this.modal.hide();
             this.modal.ngOnDestroy();
             localStorage.setItem('token', respuesta.token);
-            this.userService.setLogged(true);
+            this.userService.setMyBool(true);
             this.router.navigate(['/app/bets']);
         },
             2000);
