@@ -4,12 +4,6 @@
     body > .grid {
       height: 100%;
     }
-    .ui.form {
-      margin-top:5em;
-      margin-bottom:19em;
-      margin-left: 3em;
-      max-width: 40em;
-    }
     .ui.inverted.segment{
     margin-top: 0;
     }
@@ -18,18 +12,23 @@
     }
     .ui.button {
      margin-top: 1em;
+      width: 150px;
     }
     .ui.buttons .or {
     margin-top: 0.9em;
     }
-    .ui.negative.button{
-      margin-top:-0.8em;
-  
-    }
     .ui.modal {
     font-size: 1.1rem;
 }
-h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, p:first-child {
-    margin-top: 0;
-    padding: 2em;
+
+      .column {
+     margin-top:8em;
+  margin-bottom:25em;
+  max-width: 40em;
+    }
+  
+    .ui.form {
+    font-size: 1rem;
+    text-align: left;
+    width: 372px;
 }

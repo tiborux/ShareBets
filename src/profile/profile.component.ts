@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
     url: string;
     url_update: string;
     is_edit: boolean;
+    paypal:string;
     constructor(private userService: UserService, private router: Router, private modal: InitializeModal) {
         this.url = "http://localhost:3000/users/me";
         this.url_update = "http://localhost:3000/users/"
@@ -37,6 +38,7 @@ export class ProfileComponent implements OnInit {
         this.email = respuesta.email;
         this.nombre = respuesta.nombre;
         this.apellidos = respuesta.apellidos;
+        this.paypal = respuesta.paypal;
     }
     successUpdate(respuesta) {
         console.log(respuesta);
@@ -48,7 +50,7 @@ export class ProfileComponent implements OnInit {
         this.is_edit = !this.is_edit;
     }
     updateUser(event): void {
-        var user = new User(this.usuario, "", this.email, this.nombre, this.apellidos);
+        var user = new User(this.usuario, "", this.email, this.nombre, this.apellidos,this.paypal);
         this.userService.updateUser(this.url_update + this.usuario, user).subscribe(this.successUpdate.bind(this), this.error);
         this.is_edit = !this.is_edit;
     }
@@ -62,7 +64,7 @@ export class ProfileComponent implements OnInit {
     successDelete(respuesta) {
         this.modal.hide();
         this.modal.ngOnDestroy();
-        this.userService.setLogged(false);
+        this.userService.setMyBool(false);
         this.userService.logoutUser();
         this.router.navigate(['/app/inicio']);
     }

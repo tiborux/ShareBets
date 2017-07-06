@@ -27,6 +27,7 @@ export const routes:Routes=[
       { path: 'reset', component: SendEmailComponent},
       { path: 'forgot', component: ChangePasswordComponent},
        { path: 'details.bet', component: DetailsBetComponent, canActivate: [AuthGuard] },
+       { path: 'updatepay', component: DetailsBetComponent, canActivate: [AuthGuard] },
     ]},
       { path: '**', redirectTo:'/app/inicio',pathMatch: 'full' }
 ]

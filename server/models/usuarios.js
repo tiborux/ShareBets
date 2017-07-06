@@ -24,7 +24,8 @@ module.exports = (sequelize, Sequelize) => {
     },
     apellidos: Sequelize.STRING,
     resetPasswordToken: Sequelize.STRING,
-    resetPasswordExpires: Sequelize.DATE
+    resetPasswordExpires: Sequelize.DATE,
+    paypal: Sequelize.STRING,
   }, {
     createdAt: false,
     updatedAt: false,

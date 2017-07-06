@@ -61,14 +61,74 @@ class BetsController {
       .then(res.json.bind(res)).catch(res.send.bind(res));
   }
 
+  payment(req, res) {
+    console.log("hola");
+  } 
+    /*var paypal = require('paypal-rest-sdk');
+    paypal.configure({
+      'mode': "sandbox", //sandbox or live
+    });
+    var payReq = JSON.stringify({
+      intent: 'sale',
+      payer: {
+        payment_method: 'paypal'
+      },
+      redirect_urls: {
+        return_url: 'http://localhost:3000/process',
+        cancel_url: 'http://localhost:3000/cancel'
+      },
+      transactions: [{
+        amount: {
+          total: '10',
+          currency: 'USD'
+        },
+        description: 'This is the payment transaction description.'
+      }]
+    });
+    var sync_mode = 'true';
+       paypal.payment.create(payReq, function (error, payment) {
+        if (error) {
+            console.log(error);
+        } else {
+            if (payment.payer.payment_method === 'paypal') {
+                req.session.paymentId = payment.id;
+                var redirectUrl;
+                for (var i = 0; i < payment.links.length; i++) {
+                    var link = payment.links[i];
+                    if (link.method === 'REDIRECT') {
+                        redirectUrl = link.href;
+                    }
+                }
+                res.redirect(redirectUrl);
+            }
+        }
+    });
+  }*/
+  /*
+  var paymentId = req.query.paymentId;
+  var payerId = { payer_id: req.query.PayerID };
+  
+  paypal.payment.execute(paymentId, payerId, function(error, payment){
+    if(error){
+      console.error(JSON.stringify(error));
+    } else {
+      if (payment.state == 'approved'){
+        console.log('payment completed successfully');
+      } else {
+        console.log('payment not successful');
+      }
+    }
+  });
+    }*/
+
   payout(req, res) {
     var paypal = require('paypal-rest-sdk');
 
- paypal.configure({
-        'mode':"sandbox", //sandbox or live
-        'client_id': "AfARhzdR_-sKaDCj1-XWuVcywbP4iWyX0s9coK6EfAhZZogTRScgXnEFzA8_CL1YnuzHCQh7UNtHv95l",
-        'client_secret': "ECpmTbEdzbctRYTrqOUxf6c174NA0H7i40lpk7e4m60ZTy3jX6HG930AzfKMJ-dImyw4gJllUpe1ZpgX"
-      });
+    paypal.configure({
+      'mode': "sandbox", //sandbox or live
+      'client_id': "AfARhzdR_-sKaDCj1-XWuVcywbP4iWyX0s9coK6EfAhZZogTRScgXnEFzA8_CL1YnuzHCQh7UNtHv95l",
+      'client_secret': "ECpmTbEdzbctRYTrqOUxf6c174NA0H7i40lpk7e4m60ZTy3jX6HG930AzfKMJ-dImyw4gJllUpe1ZpgX"
+    });
     var sender_batch_id = Math.random().toString(36).substring(9);
 
     var create_payout_json = {
@@ -89,26 +149,26 @@ class BetsController {
         }
       ]
     };
-var sync_mode = 'true';
-     paypal.payout.create(create_payout_json, sync_mode, function (error, payout) {
+    var sync_mode = 'true';
+    paypal.payout.create(create_payout_json, sync_mode, function (error, payout) {
       if (error) {
-          console.log(error.response);
-          throw error;
+        console.log(error.response);
+        throw error;
       } else {
-          console.log("Create Single Payout Response");
-          console.log(payout);
-          var payoutId = payout.batch_header.payout_batch_id;
-          paypal.payout.get(payoutId, function (error, payout) {
-              if (error) {
-                  console.log(error);
-                  throw error;
-              } else {
-                  console.log("Get Payout Response");
-                  console.log(JSON.stringify(payout));
-              }
-          });
+        console.log("Create Single Payout Response");
+        console.log(payout);
+        var payoutId = payout.batch_header.payout_batch_id;
+        paypal.payout.get(payoutId, function (error, payout) {
+          if (error) {
+            console.log(error);
+            throw error;
+          } else {
+            console.log("Get Payout Response");
+            console.log(JSON.stringify(payout));
+          }
+        });
       }
-  }); 
+    });
   }
 }
 

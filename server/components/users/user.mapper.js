@@ -9,7 +9,8 @@ class UserMapper {
       usuario: outputUser.usuario,
       email: outputUser.email,
       nombre: outputUser.nombre,
-      apellidos: outputUser.apellidos
+      apellidos: outputUser.apellidos,
+      paypal: outputUser.paypal
     };
   }
 
@@ -25,7 +26,8 @@ class UserMapper {
       password: inputUser.password,
       email: inputUser.email,
       nombre: inputUser.nombre,
-      apellidos: inputUser.apellidos
+      apellidos: inputUser.apellidos,
+      paypal: inputUser.paypal
     };
   }
    inputUpdate(inputUser) {
@@ -33,7 +35,8 @@ class UserMapper {
       usuario: inputUser.usuario,
       email: inputUser.email,
       nombre: inputUser.nombre,
-      apellidos: inputUser.apellidos
+      apellidos: inputUser.apellidos,
+      paypal: inputUser.paypal
     };
   }
 

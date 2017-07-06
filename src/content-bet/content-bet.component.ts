@@ -11,7 +11,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 
 export class ContentBetComponent implements OnInit {
-    constructor(private userService: UserService, private router: Router,private sanitizer:DomSanitizer ) { }
+    constructor(private userService: UserService, private router: Router, private sanitizer: DomSanitizer) { }
     url: string = 'http://localhost:3000/bets/me';
     url_user: string = 'http://localhost:3000/bets/users/';
     bets = [];
@@ -20,10 +20,10 @@ export class ContentBetComponent implements OnInit {
     pagado: boolean;
     foto: string;
     bet: boolean;
-image: SafeResourceUrl;
+    image: SafeResourceUrl;
     ngOnInit() {
         this.userService.getBets(this.url).subscribe(this.sucess.bind(this), this.error);
-        this.bet=true;
+        this.bet = true;
     }
     sucess(respuesta) {
 
@@ -33,37 +33,44 @@ image: SafeResourceUrl;
     }
 
     sucessGetUsers(data, respuesta) {
-        this.bet=!this.bet;
+        this.bet = false;
         this.count = 0;
         for (let user of respuesta.usuarios) {
             this.count++;
 
-        } 
-        if(data.foto){
+        }
+        if (data.foto) {
             this.image = this.sanitizer.bypassSecurityTrustResourceUrl(data.foto);
         }
-        else{
+        else {
             this.image = '/assets/apuesta-img.png';
         }
-        if(data.usuarios_apuesta.estado!=3){
-            
-        var bet = new Bet(data.id, data.titulo, data.createdAt, data.coste, data.beneficio, this.count,
-            data.usuarios_apuesta.administrador, data.usuarios_apuesta.pagado, data.fecha_expires, data.fecha_apuesta, null, null, data.usuarios_apuesta.estado,this.image );
+        if (data.usuarios_apuesta.estado != 3) {
+
+            var bet = new Bet(data.id, data.titulo, data.createdAt, data.coste, data.beneficio, this.count,
+                data.usuarios_apuesta.administrador, data.usuarios_apuesta.pagado, data.fecha_expires, data.fecha_apuesta, null, null, data.usuarios_apuesta.estado, this.image);
             this.bets.push(bet);
         }
-   else{
-       this.bet=false;
+        else {
+            if(this.bets.length>1) {
+                this.bet = false;
+            }
+            else {
+                this.bet =true;
+            }
+        }
+       
    }
-    }
-    error(respuesta) {
-        console.log(respuesta);
-    }
-    createBet() {
-        this.router.navigate(['/app/create.bet']);
-    }
 
-    successPay(respuesta) {
-        console.log(respuesta);
-    }
+error(respuesta) {
+    console.log(respuesta);
+}
+createBet() {
+    this.router.navigate(['/app/create.bet']);
+}
+
+successPay(respuesta) {
+    console.log(respuesta);
+}
 
 }

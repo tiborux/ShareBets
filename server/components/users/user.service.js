@@ -51,6 +51,7 @@ class UserService {
   }
 
   create(model) {
+    console.log(model);
     return bcrypt.hash(model.password, this.config.env.SALT)
       .then((hash) => {
         model.password = hash;

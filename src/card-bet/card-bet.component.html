@@ -28,22 +28,13 @@
            {{bet.participantes}} Participantes
           </span>
 
-<script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=t1borux-facilitator-1@hotmail.com" 
-    data-button="buynow" 
-    data-name="Apuesta" 
-    data-quantity="1" 
-    data-amount="2" 
-    data-currency="EUR" 
-    data-shipping="0" 
-    data-tax="0" 
-    data-callback="localhost:4200" 
-    data-env="sandbox"
-></script>
               </div>
               <div class="form-group">
-               <button class="ui green button" *ngIf="!administrador && !pagado" (click)="pagar($event)">Pagar</button>
+               <button class="ui green button" *ngIf="!administrador && !pago" (click)="pagar($event)">Pagar</button>
                 <button class="ui green button" *ngIf="!unido" (click)="unirse($event)">Unirse</button>
                 <button class="ui green button" *ngIf="administrador" (click)="administrar($event)">Administrar</button>
+
+                
               </div>
             </div>
           </div>

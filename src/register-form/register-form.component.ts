@@ -20,6 +20,7 @@ export class RegisterFormComponent {
     checked: boolean;
     exito:boolean;
     url: string;
+    paypal: string;
     constructor(private userService: UserService,private router: Router){ 
             this.exito=false;
             this.url = 'http://localhost:3000/users';
@@ -41,7 +42,7 @@ export class RegisterFormComponent {
 
     registerUser(event: any) {
         event.preventDefault();
-        var user = new User(this.usuario, this.password, this.email, this.nombre, this.apellidos);
+        var user = new User(this.usuario, this.password, this.email, this.nombre, this.apellidos,this.paypal);
         this.userService.registerUser(this.url, user).subscribe(this.sucess.bind(this), this.error);
     }
 

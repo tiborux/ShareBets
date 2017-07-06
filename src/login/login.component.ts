@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 
     login(event: any) {
         event.preventDefault();
-        var user = new User(this.usuario, this.password, "", "", "");
+        var user = new User(this.usuario, this.password, "", "", "","");
         this.userService.loginUser(this.url_base, user).subscribe(this.sucess.bind(this), this.error.bind(this));
     }
 

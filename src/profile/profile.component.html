@@ -1,14 +1,15 @@
-
-<button class="negative ui right floated button" (click)="deleteUser($event)" id="logIn">Darse de baja</button>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
 
 <form class="ui disabled form">
-  <div class="form-group">
-    <label>Contraseña</label>
-    <input type="password" [(ngModel)]="password" name="password" placeholder="***********" [disabled]="is_edit">
-  </div>
+  <h1 class="title"> Datos de perfil</h1>
   <div class="form-group">
     <label>Email</label>
     <input type="email" [(ngModel)]="email" name="email" placeholder="Email" [disabled]="is_edit">
+  </div>
+   <div class="form-group">
+    <label>Email de paypal</label>
+    <input type="email" [(ngModel)]="paypal" name="paypal" placeholder="Paypal" [disabled]="is_edit">
   </div>
   <div class="form-group">
     <label>Nombre</label>
@@ -18,14 +19,16 @@
     <label>Apellidos</label>
     <input type="text" [(ngModel)]="apellidos" name="apellidos" placeholder="Apellidos" [disabled]="is_edit">
   </div>
-  <div class="form-group" (click)="editUser($event)" *ngIf="is_edit">
-    <button class="ui button">Editar</button>
+  <div class="form-group" *ngIf="is_edit">
+    <button class="ui button" (click)="editUser($event)" >Editar</button>
+     <button class="negative ui right floated button" (click)="deleteUser($event)" id="logIn">Darse de baja</button>
   </div>
 
   <div class="ui buttons" *ngIf="!is_edit">
     <button class="ui button" (click)="editUser($event)">Cancel</button>
     <div class="or" data-text="o"></div>
     <button class="ui positive button active" (click)="updateUser($event)">Guardar</button>
+   
   </div>
 </form>
 
