@@ -24,6 +24,10 @@ module.exports = (sequelize, DataType) => {
       estado:
      {
        type: DataType.INTEGER
+     },
+      beneficio:
+     {
+       type: DataType.BOOLEAN
      }
   },
   {

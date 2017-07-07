@@ -13,15 +13,22 @@ class BetsMapper {
 
   outputGetUsersBets(outputBet) {
     const users = outputBet.map((bet) => bet.usuarios[0].usuario);
+    const emails= outputBet.map((bet) => bet.usuarios[0].paypal);
     return  {
       id_apuesta: outputBet[0].id_apuesta,
       usuarios: users,
+      emails: emails
     };
   }
 
   outputDelete(id) {
     return {
       deleted: id
+    };
+  }
+  outputEarnings(output) {
+    return {
+      beneficio: output.beneficio
     };
   }
 

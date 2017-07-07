@@ -54,7 +54,7 @@ export class ChangePasswordComponent implements OnInit {
     }
     private changePassword(event):void
     {
-        let user= new User("",this.password,"","","");
+        let user= new User("",this.password,"","","","");
         this.userService.updatePassword(this.url,user).subscribe(this.sucessChangePassword.bind(this), this.error.bind(this));
     }
 }

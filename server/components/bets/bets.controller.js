@@ -28,6 +28,11 @@ class BetsController {
       .then(this.mapper.outputGetUsersBets.bind(this.mapper))
       .then(res.json.bind(res)).catch(res.send.bind(res));
   }
+   getEarnings(req, res) {
+    return this.service.getEarnings(req.params)
+      .then(this.mapper.outputEarnings.bind(this.mapper))
+      .then(res.json.bind(res)).catch(res.send.bind(res));
+  }
 
   createBet(req, res) {
     return this.service.create(this.mapper.inputUpdate(req.body), req.user)
@@ -36,6 +41,11 @@ class BetsController {
   }
   updatePay(req, res) {
     return this.service.updatePago(req.body, req.user)
+      .then(this.mapper.outputGet.bind(this.mapper, req.body))
+      .then(res.json.bind(res)).catch(res.send.bind(res));
+  }
+  updateEarnings(req, res) {
+    return this.service.updateEarnings(req.body, req.user)
       .then(this.mapper.outputGet.bind(this.mapper, req.body))
       .then(res.json.bind(res)).catch(res.send.bind(res));
   }

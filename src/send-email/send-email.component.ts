@@ -19,7 +19,7 @@ constructor(private userService: UserService,private router: Router){
     this.url = "http://localhost:3000/reset";
 }
     sendEmail(event):void{
-        let user= new User("","",this.email,"","");
+        let user= new User("","",this.email,"","","");
         this.userService.sendEmail(this.url,user).subscribe(this.sucess.bind(this), this.error);
     }
      sucess(respuesta) {  

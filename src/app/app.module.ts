@@ -25,6 +25,9 @@ import { CardBetComponent } from "card-bet/card-bet.component";
 import { AnimatedItemComponent } from "animated-item-list/animated-item.component";
 import { InitializeDropdown } from "directives/dropdown";
 import { DetailsBetComponent } from "details-bet/details-bet.component";
+import { PayComponent } from "pay/pay.component";
+import { UserPayComponent } from "user-pay/user-pay.component";
+import { PayEarningsComponent } from "pay-earnings/pay-earnings.component";
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { DetailsBetComponent } from "details-bet/details-bet.component";
     InitializeModal,
     AnimatedItemComponent,
     InitializeDropdown,
-    DetailsBetComponent
+    DetailsBetComponent,
+    PayComponent,
+    UserPayComponent,
+    PayEarningsComponent
     
   ],
   imports: [

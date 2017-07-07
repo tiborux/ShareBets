@@ -48,7 +48,7 @@ export class ContentBetComponent implements OnInit {
         if (data.usuarios_apuesta.estado != 3) {
 
             var bet = new Bet(data.id, data.titulo, data.createdAt, data.coste, data.beneficio, this.count,
-                data.usuarios_apuesta.administrador, data.usuarios_apuesta.pagado, data.fecha_expires, data.fecha_apuesta, null, null, data.usuarios_apuesta.estado, this.image);
+                data.usuarios_apuesta.administrador, data.usuarios_apuesta.pagado, data.fecha_expires, data.fecha_apuesta, data.direccion_paypal, null, data.usuarios_apuesta.estado, this.image);
             this.bets.push(bet);
         }
         else {

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from "@angular/router";
 import { Bet } from "models/bet";
+import { User } from "models/user";
 import { UserService } from "services/user.service";
 import { InitializeModal } from '../directives/modal'
 
@@ -12,6 +13,7 @@ import { InitializeModal } from '../directives/modal'
 })
 
 export class DetailsBetComponent implements OnInit {
+
     coste: number;
     beneficio: number;
     url: string;
@@ -19,13 +21,23 @@ export class DetailsBetComponent implements OnInit {
     image64: string;
     foto: string;
     url_bet: string;
+    url_user: string;
+    url_me: string;
+    url_pay: string;
+    user_id: number;
+    users = [];
+
     constructor(private userService: UserService, private router: Router, private modal: InitializeModal) {
         this.url = 'http://localhost:3000/bets/';
         this.url_bet = 'http://localhost:3000/bets/bet/';
         this.url_estado = 'http://localhost:3000/bets/end/';
+        this.url_user = 'http://localhost:3000/bets/users/';
+    
     }
     ngOnInit(): void {
         this.userService.getBet(this.url_bet + this.userService.getIdbet()).subscribe(this.successBet.bind(this), this.error);
+        this.userService.getUsersBet(this.url_user + this.userService.getIdbet()).subscribe(this.sucessGetUsers.bind(this), this.error);
+        
     }
 
     updateApuesta() {
@@ -58,7 +70,17 @@ export class DetailsBetComponent implements OnInit {
     successBet(respuesta) {
         this.coste = respuesta.coste;
         this.beneficio = respuesta.beneficio;
+        this.userService.setBeneficio(this.beneficio);
     }
+    sucessGetUsers(data) {
+    
+        for(var i=0;i<data.usuarios.length;i++){
+            let user = new User(data.usuarios[i],"","","","",data.emails[i]);
+            this.users.push(user);
+        }
+        console.log(this.users);
+    }
+
     error(respuesta) {
         console.log(respuesta);
     }

@@ -12,17 +12,23 @@ export class UserService {
   constructor(private httpRequest: HttpService) { 
        this.boolSubject = new Subject<boolean>();
         this.myBool$ = this.boolSubject.asObservable();
+        this.pagadoSubject = new Subject<boolean>();
+        this.myPagado$ = this.boolSubject.asObservable();
   }
 
   login: Login = new Login("", "");
   private logged = new Subject<boolean>();
   status: boolean = false;
+  beneficio: number;
   options: RequestOptions;
   id: number;
   // Observable string streams
   isLogged$ = this.logged.asObservable();
   myBool$: Observable<boolean>;
   private boolSubject: Subject<boolean>;
+
+   myPagado$: Observable<boolean>;
+  private pagadoSubject: Subject<boolean>;
 
   setLogin(user: string, password: string) {
     this.login = new Login(user, password);
@@ -37,6 +43,10 @@ export class UserService {
     setMyBool(newValue) {
       this.myBool$ = newValue;
       this.boolSubject.next(newValue);
+    }
+    setpagado(newValue) {
+      this.myPagado$ = newValue;
+      this.pagadoSubject.next(newValue);
     }
   //Add new user 
   registerUser(url, body) {
@@ -106,7 +116,16 @@ export class UserService {
   updateBet(url, body) {
     return this.httpRequest.put(url, body, this.options);
   }
+  updatePago(url, body) {
+    return this.httpRequest.put(url, body, this.options);
+  }
   endBet(url, body) {
     return this.httpRequest.put(url, body, this.options);
+  }
+  setBeneficio(beneficio){
+    this.beneficio=beneficio;
+  }
+  getBeneficio(){
+    return this.beneficio;
   }
 }

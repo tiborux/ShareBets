@@ -12,6 +12,8 @@ import { HistoryComponent } from "history/history.component";
 import { ChangePasswordComponent } from "change-password/change-password.component";
 import { SendEmailComponent } from "send-email/send-email.component";
 import { DetailsBetComponent } from "details-bet/details-bet.component";
+import { PayComponent } from "pay/pay.component";
+import { PayEarningsComponent } from "pay-earnings/pay-earnings.component";
 
 export const routes:Routes=[
   { path: 'app',
@@ -27,7 +29,8 @@ export const routes:Routes=[
       { path: 'reset', component: SendEmailComponent},
       { path: 'forgot', component: ChangePasswordComponent},
        { path: 'details.bet', component: DetailsBetComponent, canActivate: [AuthGuard] },
-       { path: 'updatepay', component: DetailsBetComponent, canActivate: [AuthGuard] },
+       { path: 'updatepay/:id', component: PayComponent},
+        { path: 'updateearnings/:id', component:PayEarningsComponent},
     ]},
       { path: '**', redirectTo:'/app/inicio',pathMatch: 'full' }
 ]

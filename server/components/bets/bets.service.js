@@ -41,8 +41,17 @@ class BetsService {
       },
       include: [{
         model: this.tables.models.usuarios,
-        attributes: ['usuario'],
+        attributes: ['usuario','paypal'],
       }],
+    });
+  }
+
+  getEarnings(input) {
+    return this.tables.models.usuarios_apuestas.find({
+      where: {
+        id_apuesta: input.id_bet,
+        id_usuario: input.id_usuario
+      } 
     });
   }
 
@@ -68,9 +77,17 @@ class BetsService {
       )
   }
   updatePago(body, user) {
-    return this.tables.models.usuarios_apuestas.update({ pagado: body.pago }, {
+    return this.tables.models.usuarios_apuestas.update({ pagado: body.pagado }, {
       where: {
-        id_usuario: user,
+        id_usuario: body.id_usuario,
+        id_apuesta: body.id_apuesta
+      }
+    });
+  }
+   updateEarnings(body, user) {
+    return this.tables.models.usuarios_apuestas.update({ beneficio: body.beneficio }, {
+      where: {
+        id_usuario: body.id_usuario,
         id_apuesta: body.id_apuesta
       }
     });
