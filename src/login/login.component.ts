@@ -25,10 +25,8 @@ export class LoginComponent implements OnInit {
 
     }
     sucess(respuesta) {
-        this.modal.show(false,true);
         setTimeout(() => {
-            this.modal.hide();
-            this.modal.ngOnDestroy();
+            
             localStorage.setItem('token', respuesta.token);
             this.userService.setMyBool(true);
             this.router.navigate(['/app/bets']);

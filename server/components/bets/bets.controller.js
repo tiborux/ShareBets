@@ -24,7 +24,7 @@ class BetsController {
   }
 
   getUsers(req, res) {
-    return this.service.getUsersBets(req.params.betId)
+    return this.service.getUsersBets(req.user,req.params.betId)
       .then(this.mapper.outputGetUsersBets.bind(this.mapper))
       .then(res.json.bind(res)).catch(res.send.bind(res));
   }
@@ -66,11 +66,15 @@ class BetsController {
   }
 
   delete(req, res) {
-    return this.service.delete(req.params.user_id)
+    return this.service.delete(req.params.user_id,req.body)
       .then(this.mapper.outputDelete.bind(this.mapper, req.params.username))
       .then(res.json.bind(res)).catch(res.send.bind(res));
   }
-
+ deleteApuesta(req, res) {
+    return this.service.deleteApuesta(req.user,req.body)
+      .then(this.mapper.outputDelete.bind(this.mapper, req.params.username))
+      .then(res.json.bind(res)).catch(res.send.bind(res));
+  }
   payment(req, res) {
     console.log("hola");
   } 

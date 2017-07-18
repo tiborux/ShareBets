@@ -23,8 +23,9 @@ export class InitializeModal implements OnInit, OnDestroy {
             .modal('show')
             ;
     }
+
     public hide() {
-        $('.ui.modal').modal('hide');
+        $('.ui.modal').modal('hide').modal('hide dimmer');
     }
     public ngOnDestroy() {
         $('.ui.modal').remove();

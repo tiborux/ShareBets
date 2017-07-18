@@ -1,7 +1,5 @@
 
-  <div class="content">
-<div class="ui stackable inverted divided equal height stackable grid">
-  <div class="five wide column">
+<div class="content">
     <form class="ui form" (ngSubmit)="updateApuesta($event)">
       <h1>Datos de la apuesta</h1>
       <div class="field">
@@ -16,36 +14,35 @@
         <label>Foto del boleto: </label>
         <input type="file" (change)="setFoto($event)">
       </div>
-      <div class="form-group">
+    <div class="ui buttons">
         <button class="ui green button" type="submit">Actualizar</button>
-        <button class="negative ui right floated button" (click)="endBet($event)" id="endBet">Finalizar apuesta</button>
-      </div>
+        <button class="ui red button" (click)="endBet($event)">Finalizar apuesta</button>
+    </div>
     </form>
-  </div>
-
-  <div class="two wide column">
+  <div class="two column">
     <h1>Participantes</h1>
     <div class="participantes">
       <user-pay *ngFor="let user of users" [user]="user"></user-pay>
     </div>
   </div>
 </div>
-<
-  <div class="ui modal">
-    <i class="close icon"></i>
-    <div class="header">
-      Finalizar la apuesta
-    </div>
-    <div class="description">
-      <p>¿Estas seguro de que quieres finalizar la apuesta?</p>
-    </div>
 
-    <div class="actions">
-      <div class="ui red deny button">
-        No
-      </div>
-      <div class="ui positive right labeled icon button" (click)="confirm($event)">
-        Si
-        <i class="checkmark icon"></i>
-      </div>
+<div class="ui active modal" *ngIf="modalshow">
+  <i class="close icon"></i>
+  <div class="header">
+    Finalizar apuesta
+  </div>
+    <div class="description">
+      <p>¿Estas seguro que quieres finalizar la apuesta?</p>
     </div>
+  
+  <div class="actions">
+    <div class="ui red deny button" >
+      No
+    </div>
+    <div class="ui positive right labeled icon button" (click)="confirm($event)">
+      Si
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>

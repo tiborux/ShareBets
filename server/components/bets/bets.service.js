@@ -34,7 +34,8 @@ class BetsService {
     });
   }
 
-  getUsersBets(betId) {
+  getUsersBets(userID,betId) {
+    console.log("GEWGEWGEWGWETW"+userID);
     return this.tables.models.usuarios_apuestas.findAll({
       where: {
         id_apuesta: betId
@@ -42,6 +43,11 @@ class BetsService {
       include: [{
         model: this.tables.models.usuarios,
         attributes: ['usuario','paypal'],
+        where: {
+          id: {
+            $ne: userID
+          }
+        }
       }],
     });
   }
@@ -118,6 +124,13 @@ class BetsService {
   delete(id) {
     return this.db.destroy({
       where: { id: id }
+    });
+  }
+
+   deleteApuesta(id,idapuesta) {
+     console.log(id+idapuesta.id_apuesta);
+    return this.tables.models.usuarios_apuestas.destroy({
+      where: { id_usuario: id,id_apuesta: idapuesta.id_apuesta }
     });
   }
 }

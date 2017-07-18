@@ -37,7 +37,6 @@ export class ContentBetComponent implements OnInit {
         this.count = 0;
         for (let user of respuesta.usuarios) {
             this.count++;
-
         }
         if (data.foto) {
             this.image = this.sanitizer.bypassSecurityTrustResourceUrl(data.foto);
@@ -52,6 +51,7 @@ export class ContentBetComponent implements OnInit {
             this.bets.push(bet);
         }
         else {
+            
             if(this.bets.length>1) {
                 this.bet = false;
             }

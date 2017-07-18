@@ -23,19 +23,27 @@
     .description{
       padding:1em;
     }
-       .column {
-     margin-top:8em;
-  margin-bottom:20em;
-  max-width: 40em;
-  padding-left: 40em;
-    }
-  
-    .ui.form {
-    font-size: 1rem;
-    text-align: left;
-    width: 372px;
-}
 
-.five.column{
-  margin-left: 20em;
+    .content{
+          overflow: hidden; /* will contain if #first is longer than #second */
+          width:700px;
+    }
+
+    .ui.form {
+      padding-top: 4em;
+      padding-left: 2em;
+      padding-bottom: 5em;
+     width: 380px;
+     float:left;
+   
+}
+.two.column{
+  padding-top: 4em;
+      padding-left: 2em;
+      overflow: hidden;
+      width:200px;
+}
+    .ui.form input[type=text], .ui.form input[type=email], .ui.form input[type=search], .ui.form input[type=password], .ui.form input[type=date], .ui.form input[type=datetime-local], .ui.form input[type=tel], .ui.form input[type=time], .ui.form input[type=file], .ui.form input[type=url], .ui.form input[type=number] {
+
+    border: 1px solid rgba(0,0,0,.87);
 }

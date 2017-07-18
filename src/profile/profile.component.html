@@ -20,12 +20,12 @@
     <input type="text" [(ngModel)]="apellidos" name="apellidos" placeholder="Apellidos" [disabled]="is_edit">
   </div>
   <div class="form-group" *ngIf="is_edit">
-    <button class="ui button" (click)="editUser($event)" >Editar</button>
+    <button class="ui green button" (click)="editUser($event)" >Editar</button>
      <button class="negative ui right floated button" (click)="deleteUser($event)" id="logIn">Darse de baja</button>
   </div>
 
   <div class="ui buttons" *ngIf="!is_edit">
-    <button class="ui button" (click)="editUser($event)">Cancel</button>
+    <button class="ui red button" (click)="editUser($event)">Cancel</button>
     <div class="or" data-text="o"></div>
     <button class="ui positive button active" (click)="updateUser($event)">Guardar</button>
    

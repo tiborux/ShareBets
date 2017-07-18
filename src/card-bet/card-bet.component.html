@@ -32,6 +32,7 @@
               <div class="form-group">
                <button class="ui green button" *ngIf="!administrador && !pago" (click)="pagar($event)">Pagar</button>
                 <button class="ui green button" *ngIf="!unido" (click)="unirse($event)">Unirse</button>
+                <button class="ui red button" *ngIf="!unido" (click)="rechazar($event)">Rechazar</button>
                 <button class="ui green button" *ngIf="administrador" (click)="administrar($event)">Administrar</button>
 
                 

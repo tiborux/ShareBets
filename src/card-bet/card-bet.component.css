@@ -1,6 +1,7 @@
 .ui.grid {
     margin-top: 5em;
     margin-left: 2em;
+    
 }
 .ui.segment {
     max-width: 80%;
@@ -15,6 +16,7 @@
 .ui.card{
     margin-bottom:2em;
     width: 20em;
+     border: 1px solid rgba(0,0,0,.87);
 }
 p{
     font-weight: bold;

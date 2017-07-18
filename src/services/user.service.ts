@@ -92,6 +92,9 @@ export class UserService {
   deleteUser(url) {
     return this.httpRequest.delete(url, this.options);
   }
+  notJoin(url,body) {
+    return this.httpRequest.post(url, body,this.options);
+  }
   getEmail(url) {
     return this.httpRequest.get(url, this.options);
   }

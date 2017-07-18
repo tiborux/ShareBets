@@ -11,6 +11,7 @@ module.exports = (controller, middlewares) => {
   router.get('/bet/:id', middlewares.jwt.isAuthed,controller.getBet.bind(controller));
   router.get('/earnings/:id_bet/:id_usuario', middlewares.jwt.isAuthed,controller.getEarnings.bind(controller));
   router.delete('/:id', middlewares.jwt.isAuthed, controller.delete.bind(controller));
+  router.post('/notjoin/:id', middlewares.jwt.isAuthed, controller.deleteApuesta.bind(controller));
   router.put('/status', middlewares.jwt.isAuthed, controller.updateStatus.bind(controller));
   router.put('/end', middlewares.jwt.isAuthed, controller.endBet.bind(controller));
   router.put('/pay', middlewares.jwt.isAuthed, controller.updatePay.bind(controller));

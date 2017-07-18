@@ -14,6 +14,7 @@ export class CardBetComponent implements OnInit {
     @Input() bet: Bet;
     url_pay: string;
     url_estado: string;
+    url_delete: string;
     url_me: string;
     pagado: boolean;
     administrador: boolean;
@@ -24,10 +25,11 @@ export class CardBetComponent implements OnInit {
     unido: boolean;
     pago: boolean;
     constructor(private userService: UserService, private router: Router) {
-        
+
         this.url_pay = 'http://localhost:3000/bets/pay/';
         this.url_estado = 'http://localhost:3000/bets/status/';
         this.url_me = 'http://localhost:3000/users/me/';
+        this.url_delete = 'http://localhost:3000/bets/notjoin/';
         this.userService.myPagado$.subscribe((newBool: boolean) => {
             this.pagado = newBool;
             this.pago = newBool
@@ -114,5 +116,12 @@ export class CardBetComponent implements OnInit {
         let myFormattedDate = day + "-" + monthIndex + "-" + year + " " + hours + ":" + minutes + ":" + seconds;
         return myFormattedDate;
     }
-
+    rechazar(event) {
+        
+this.userService.notJoin(this.url_delete+this.bet.id,{ id_apuesta: this.bet.id}).subscribe(this.successNotjoin.bind(this), this.error);
+    }
+successNotjoin()
+{
+     this.router.navigate(['/app/bets']);
+}
 }
